@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <ul>
 @foreach ($dishes as $dish)
     <li>
@@ -7,3 +11,5 @@
     </li>
 @endforeach
 </ul>
+
+@endsection
