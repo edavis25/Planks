@@ -51,6 +51,17 @@
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                         </div>
 
+                        <div class="form-group{{ $errors->has('registraion_code') ? ' has-error' : '' }}">
+                            <label for="registration_code">Registration Code</label>
+                            <input id="registration_code" type="text" class="form-control" name="registration_code">
+
+                            @if ($errors->has('registration_code'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('registration_code') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">
                                 Register

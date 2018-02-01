@@ -47,11 +47,26 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        //return Validator::make($data, [
+        $validator = Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'registration_code' => 'required'
         ]);
+
+        $validator->after(function ($validator) use ($data) {
+            $reg_code = \App\RegistrationCode::where([
+                                                ['code', $data['registration_code']],
+                                                ['used', false]
+                                             ])->first();
+
+            if (!$reg_code) {
+                $validator->errors()->add('registration_code', 'Your registration code is invalid');
+            }
+        });
+
+        return $validator;
     }
 
     /**
@@ -62,10 +77,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        //return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        // Update registration code values
+        \App\RegistrationCode::where('code', $data['registration_code'])
+                             ->update([
+                                 'used' => true,
+                                 'code_used_by_user_id' => $user->id
+                             ]);
+        return $user;
     }
 }
+
+// 1cmLrtCnnpXV6qS

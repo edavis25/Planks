@@ -21,3 +21,9 @@ Route::resource('dishes', 'DishController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', function() {
+    return view('admin');
+});
+
+Route::get('/registration_code', 'AdminController@create_registration_code');

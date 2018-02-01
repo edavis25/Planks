@@ -43,11 +43,11 @@
                         </li>
                     @else
                         <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
                                     <a href="{{ route('logout') }}" class="dropdown-item"
                                         onclick="event.preventDefault();
