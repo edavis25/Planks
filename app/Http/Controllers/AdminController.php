@@ -7,13 +7,19 @@ use App\RegistrationCode;
 
 class AdminController extends Controller
 {
-    //
+    public function __construct() {
+        $this->middleware('admin');
+    }
+
+    public function index() {
+        return view('admin');
+    }
 
     public function create_registration_code(Request $request) {
         $user = $request->user();
-        if (!$user) {
-            abort(403);
-        }
+        //if (!$user) {
+        //    abort(403);
+        //}
 
         $registration_code = RegistrationCode::create([
             'code'               => str_random(15),

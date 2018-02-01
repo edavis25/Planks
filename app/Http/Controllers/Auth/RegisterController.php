@@ -82,7 +82,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            //'is_admin' =>  true,    // If given code to register, user becomes admin
         ]);
+
+        $user->is_admin = true;
+        $user->save();
 
         // Update registration code values
         \App\RegistrationCode::where('code', $data['registration_code'])
@@ -93,5 +97,3 @@ class RegisterController extends Controller
         return $user;
     }
 }
-
-// 1cmLrtCnnpXV6qS
