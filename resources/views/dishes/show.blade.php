@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('partials.alert')
+
 <h1>{{ $dish->name }}</h1>
 <h4>{{ $dish->id }}</h4>
 <p>

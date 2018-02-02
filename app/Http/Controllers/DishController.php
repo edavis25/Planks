@@ -34,7 +34,13 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        // Get array of categories to populate select box:
+        // pluck the collection to create array that matches input expected by select
+        // box. Each <option> value = the array's values (category_id) and the array's
+        // keys are shown to user as the text inside the dropdown select box
+        $categories = Category::all()->pluck('name', 'id')->toArray();
+
+        return view('dishes.create', compact('categories'));
     }
 
     /**
@@ -46,6 +52,7 @@ class DishController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request->all());
     }
 
     /**
@@ -87,6 +94,10 @@ class DishController extends Controller
     {
         // TODO: Add some validation
         $dish->update($request->all());
+
+        $request->session()->flash('flash_message', $dish->name . ' has been updated.');
+        $request->session()->flash('flash_status', 'success');
+
         return redirect()->action('DishController@show', [$dish]);
     }
 

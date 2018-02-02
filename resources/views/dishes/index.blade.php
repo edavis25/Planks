@@ -50,7 +50,7 @@
                             </div>
                             <!-- Menu Item Table -->
                             <div class="table-responsive">
-                                <table class="table table-striped" style="width: 100%;">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -68,8 +68,10 @@
                                             <td>{{ $dish->category->name }}</td>
                                             <td>{{ $dish->price }}</td>
                                             <td style="min-width: 20%;" class="text-white">
-                                                <a href="{{ route('dishes.edit', [ 'dish' => $dish ]) }}" class="btn btn-info btn-sm">Edit</a>
-                                                <a class="btn btn-danger btn-sm">Delete</a>
+                                                <a href="{{ route('dishes.edit', [ 'dish' => $dish ]) }}" class="btn btn-info btn-sm">
+                                                    <i class="fa fa-pencil"></i> Edit
+                                                </a>
+                                                <a class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                                             </td>
                                         </tr>
                                         @endforeach
