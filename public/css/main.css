@@ -1,0 +1,121 @@
+.bg-gray {
+  background-color: #212D32; }
+
+.bg-gray-dark {
+  background-color: #192226; }
+
+.bg-gray-light {
+  background-color: #2C3B41; }
+
+.text-gray {
+  color: #212D32; }
+
+.text-gray-dark {
+  color: #192226; }
+
+.text-gray-light {
+  color: #2C3B41; }
+
+.text-gray-lighter {
+  color: #465C66; }
+
+#admin-wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+#admin-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  height: 100%;
+  width: 230px;
+  background-color: #212D32; }
+  @media (max-width: 500px) {
+    #admin-sidebar {
+      display: none;
+      width: 0; } }
+  #admin-sidebar #admin-sidebar-content {
+    color: #fff;
+    padding-top: 15px; }
+  #admin-sidebar #admin-user-info {
+    padding: 0 0 15px 10px; }
+    #admin-sidebar #admin-user-info .circle {
+      display: inline-block;
+      position: relative;
+      border-radius: 50%;
+      background-color: #00B371;
+      width: 1.75em;
+      height: 1.75em;
+      line-height: 1.65em;
+      text-align: center;
+      font-size: 1.75em;
+      color: #fff; }
+    #admin-sidebar #admin-user-info .username {
+      color: #fff;
+      position: absolute;
+      display: inline-block;
+      font-size: 1.25em;
+      padding-left: 10px; }
+      #admin-sidebar #admin-user-info .username b {
+        display: block;
+        padding: 0;
+        margin-bottom: -10px; }
+  #admin-sidebar .sidebar-links {
+    position: relative;
+    display: block;
+    width: 100%; }
+    #admin-sidebar .sidebar-links .sidebar-item {
+      padding: 12px 0 12px 10px;
+      font-size: 1em; }
+    #admin-sidebar .sidebar-links .sidebar-link {
+      color: #fff;
+      font-weight: 600; }
+      #admin-sidebar .sidebar-links .sidebar-link:hover {
+        color: #999999;
+        text-decoration: none; }
+
+#admin-content {
+  position: relative;
+  margin-left: 230px;
+  margin-top: -1px;
+  height: 100%;
+  min-height: 100vh;
+  background-color: #EBF0F5; }
+  @media (max-width: 500px) {
+    #admin-content {
+      margin-left: 0; } }
+
+.pagination li {
+  display: inline-block;
+  float: left;
+  font-size: 1.1rem;
+  color: #2196f3;
+  border: 1px solid #ddd; }
+  .pagination li:nth-child(1n + 2) {
+    border-left: none; }
+
+.pagination a {
+  text-decoration: none; }
+  .pagination a:hover {
+    background-color: #ededed; }
+
+.pagination span {
+  cursor: not-allowed; }
+
+.pagination a, .pagination span {
+  display: block;
+  padding: 3px 12px; }
+
+.pagination .active {
+  background-color: #2196f3;
+  color: #fff;
+  border-color: #2196f3; }
+
+.btn-hidden {
+  background: none;
+  padding: 0;
+  border: none;
+  width: 100%;
+  height: 100%; }

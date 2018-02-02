@@ -17,7 +17,7 @@
     <!-- Font Awesome 4.7.0 -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Custom Styles -->
-
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -66,9 +66,9 @@
             </div>
         </nav>
 
-
         @yield('content')
-    </div>
+
+    </div> <!-- /end #app -->
 
     <!-- jQuery 3.2.1 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -76,6 +76,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!-- Bootstrap 4 -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <!--script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script-->
     <!-- Custom Scripts -->
     <script src="{{ asset('js/app1.js') }}"></script>
 </body>

@@ -12,9 +12,17 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dishes = Dish::all();
+        // Init query
+        $dishes = Dish::query();
+
+        // Look for any search params
+        if ($request->has('search')) {
+            $dishes->where('name', 'like', "%{$request->input('search')}%");
+        }
+
+        $dishes = $dishes->paginate(10);
         return view('dishes.index', compact('dishes'));
     }
 
@@ -56,9 +64,9 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Dish $dish)
     {
-        //
+        return view('dishes.edit', compact('dish'));
     }
 
     /**
