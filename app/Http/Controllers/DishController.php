@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Dish;
+use App\Category;
 
 class DishController extends Controller
 {
@@ -22,7 +23,7 @@ class DishController extends Controller
             $dishes->where('name', 'like', "%{$request->input('search')}%");
         }
 
-        $dishes = $dishes->paginate(10);
+        $dishes = $dishes->paginate(5);
         return view('dishes.index', compact('dishes'));
     }
 
@@ -50,7 +51,7 @@ class DishController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Dish $dish (route-model binding)
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, Dish $dish)
@@ -61,24 +62,32 @@ class DishController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Dish $dish (route-model binding)
      * @return \Illuminate\Http\Response
      */
     public function edit(Dish $dish)
     {
-        return view('dishes.edit', compact('dish'));
+        // Get array of categories to populate select box:
+        // pluck the collection to create array that matches input expected by select
+        // box. Each <option> value = the array's values (category_id) and the array's
+        // keys are shown to user as the text inside the dropdown select box
+        $categories = Category::all()->pluck('name', 'id')->toArray();
+
+        return view('dishes.edit', compact('dish', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Dish $dish (route-model binding)
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        // TODO: Add some validation
+        $dish->update($request->all());
+        return redirect()->action('DishController@show', [$dish]);
     }
 
     /**

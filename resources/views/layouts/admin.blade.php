@@ -7,7 +7,7 @@
 
     <div id="admin-content">
 
-        <div class="container pt-3">
+        <div class="container-fluid pt-3">
             <div class="row-fluid">
 
                 @yield('admin-header')
@@ -19,7 +19,7 @@
             <div class="row-fluid">
                 <div class="card">
                     <div class="card-body">
-                        <div class="container px-0 mx-0">
+                        <div class="container-fluid px-0 mx-0">
 
                             @yield('admin-content')
                             <!-- Use fluid rows in content section -->

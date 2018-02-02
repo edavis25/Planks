@@ -49,31 +49,33 @@
                                 {{ $dishes->links() }}
                             </div>
                             <!-- Menu Item Table -->
-                            <table class="table table-striped table-responsive">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Name</th>
-                                        <th scope="col" class="d-none d-lg-block">Description</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($dishes as $dish)
-                                    <tr>
-                                        <td>{{ $dish->name }}</td>
-                                        <td class="d-none d-lg-block">{{ $dish->description }}</td>
-                                        <td>{{ $dish->category->name }}</td>
-                                        <td>{{ $dish->price }}</td>
-                                        <td style="min-width: 20%;" class="text-white">
-                                            <a class="btn btn-info btn-sm">Edit</a>
-                                            <a class="btn btn-danger btn-sm">Delete</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-striped" style="width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col" class="d-none d-lg-block">Description</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($dishes as $dish)
+                                        <tr>
+                                            <td>{{ $dish->name }}</td>
+                                            <td class="d-none d-lg-block">{{ $dish->description }}</td>
+                                            <td>{{ $dish->category->name }}</td>
+                                            <td>{{ $dish->price }}</td>
+                                            <td style="min-width: 20%;" class="text-white">
+                                                <a href="{{ route('dishes.edit', [ 'dish' => $dish ]) }}" class="btn btn-info btn-sm">Edit</a>
+                                                <a class="btn btn-danger btn-sm">Delete</a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div> <!-- /end .table-responsive -->
                         </div>
                     </div>
                 </div>
