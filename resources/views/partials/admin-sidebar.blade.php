@@ -21,7 +21,7 @@
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-list-ul pr-2"></i>
-                <a class="sidebar-link" href="#">Menu Categories</a>
+                <a class="sidebar-link" href="{{ url('/categories') }}">Menu Categories</a>
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-cutlery pr-2"></i>

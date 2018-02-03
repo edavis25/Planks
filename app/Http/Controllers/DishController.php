@@ -66,7 +66,6 @@ class DishController extends Controller
         $request->session()->flash('flash_status', 'success');
 
         return redirect()->action('DishController@index');
-
     }
 
     /**

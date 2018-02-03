@@ -18,7 +18,7 @@
 
             <div class="input-group mb-3">
 
-                 {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search menu items...', 'class' => 'form-control'] ) }}
+                 {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search dishes by name...', 'class' => 'form-control'] ) }}
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-primary">
@@ -72,7 +72,6 @@
                             {{-- "No" toggle closed confirm --}}
                             <a data-toggle="collapse" href="#deleteDish-{{ $dish->id }}" role="button"> no</a>
                         </div>
-
                     </td>
                 </tr>
                 @endforeach
