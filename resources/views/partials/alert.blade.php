@@ -4,5 +4,14 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+
+        @if (Session::has('flash_details'))
+            <a class="alert-link d-block" data-toggle="collapse" href="#alertAdditionalDetails" role="button">
+                <i class="fa fa-plus"></i> Additional Details
+            </a>
+            <div class="collapse" id="alertAdditionalDetails">
+                {{ Session::get('flash_details') }}
+            </div>
+        @endif
     </div>
 @endif

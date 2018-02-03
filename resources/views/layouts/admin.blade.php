@@ -10,6 +10,8 @@
         <div class="container-fluid pt-3">
             <div class="row-fluid">
 
+                @include('partials.alert')
+
                 @yield('admin-header')
                 <!-- Insert an h1 tag for page title here! -->
                 <!-- NOTE: Maybe turn this into a variable? -->

@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('admin-header')
+
     <a class="btn btn-info text-white mb-2" href="{{ url('/dishes') }}">
         <i class="fa fa-arrow-left"></i>
         Back

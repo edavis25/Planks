@@ -51,8 +51,22 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd($request->all());
+        try {
+            $dish = new Dish($request->all());
+            $dish->save();
+        }
+        catch (\Exception $e) {
+            $request->session()->flash('flash_message', 'Something went wrong creating your item.');
+            $request->session()->flash('flash_status', 'danger');
+            $request->session()->flash('flash_details', $e->errorInfo[2]);
+            return back()->withInput();
+        }
+
+        $request->session()->flash('flash_message', $dish->name . ' has been created.');
+        $request->session()->flash('flash_status', 'success');
+
+        return redirect()->action('DishController@index');
+
     }
 
     /**
@@ -104,11 +118,17 @@ class DishController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Dish $dish (route-model binding)
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Dish $dish)
     {
-        //
+        $dish->delete();
+
+        $request->session()->flash('flash_message', $dish->name . ' has been deleted.');
+        $request->session()->flash('flash_status', 'success');
+
+        return redirect()->action('DishController@index');
     }
 }
