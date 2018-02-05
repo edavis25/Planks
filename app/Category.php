@@ -11,7 +11,7 @@ class Category extends Model
     *
     * @var array
     */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'details'];
 
     public function dishes() {
         return $this->hasMany('App\Dish');

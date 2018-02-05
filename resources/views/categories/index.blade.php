@@ -40,6 +40,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
+                        <th scope="col">Additional Details</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -47,7 +48,7 @@
                     @foreach ($categories as $cat)
                         <tr>
                             <td>{{ $cat->name }}</td>
-
+                            <td>{{ $cat->details }}</td>
                             <td style="min-width: 20%">
                                 <a href="{{ route('categories.edit', [ 'category' => $cat ]) }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil"></i> Edit

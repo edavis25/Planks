@@ -11,24 +11,64 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
+        \App\Category::create([
+            'name' => 'Appetizers',
+        ]);
+        \App\Category::create([
+            'name' => 'Salads and Soups'
+        ]);
+        \App\Category::create([
+            'name' => 'Burgers',
+            'details' => 'All burgers are 7 ounces and served with lettuce, tomato, and onion on a brioche bun with your choice of one side.',
+        ]);
+        \App\Category::create([
+            'name' => 'Sandwiches',
+            'details' => 'All Sandwiches are served with your choice of one side.',
+        ]);
+        \App\Category::create([
+            'name' => 'Subs',
+            'details' => 'All subs are served with your choice of one side.',
+        ]);
+        \App\Category::create([
+            'name' => 'Entrees',
+            'details' => 'All Entrees are served with your choice of two sides.',
+        ]);
+        \App\Category::create([
+            'name' => 'Sides'
+        ]);
+        \App\Category::create([
+            'name' => 'Pizza'
+        ]);
+        \App\Category::create([
+            'name' => 'Draft Beer'
+        ]);
+        \App\Category::create([
+            'name' => 'Bottled Beer'
+        ]);
+        
+        /* This seeding method throws errors on details insert for some reason...
         DB::table('categories')->insert([
             [
-                'name' => 'Appetizers'
+                'name' => 'Appetizers',
             ],
             [
                 'name' => 'Salads and Soups'
             ],
             [
-                'name' => 'Burgers'
+                'name' => 'Burgers',
+                //'details' => 'All burgers are 7 ounces and served with lettuce, tomato, and onion on a brioche bun with your choice of one side.',
             ],
             [
-                'name' => 'Sandwiches'
+                'name' => 'Sandwiches',
+                //'details' => 'All Sandwiches are served with your choice of one side.',
             ],
             [
-                'name' => 'Subs'
+                'name' => 'Subs',
+                //'details' => 'All subs are served with your choice of one side.',
             ],
             [
-                'name' => 'Entrees'
+                'name' => 'Entrees',
+                //'details' => 'All Entrees are served with your choice of two sides.',
             ],
             [
                 'name' => 'Sides'
@@ -43,5 +83,6 @@ class CategorySeeder extends Seeder
                 'name' => 'Bottled Beer'
             ]
         ]);
+        */
     }
 }
