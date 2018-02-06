@@ -2,21 +2,22 @@
 
 @section('admin-header')
 
-    <a class="btn btn-success text-white mb-2" href="{{ route('categories.create') }}">
-        <i class="fa fa-plus"></i> New Category
+    <a class="btn btn-success text-white mb-2" href="{{ url('/beers/create') }}">
+        <i class="fa fa-plus"></i> New Beer
     </a>
-    <h1>Categories</h1>
+    <h1>Beers</h1>
 
 @endsection
 
 @section('admin-content')
     <!-- Search bar -->
     <div class="row-fluid my-3">
-        {!! Form::open([ 'route' => 'categories.index', 'method' => 'GET' ]) !!}
+
+        {!! Form::open([ 'route' => 'beers.index', 'method' => 'GET' ]) !!}
 
             <div class="input-group mb-3">
 
-                 {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search categories by name...', 'class' => 'form-control'] ) }}
+                {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search beers by name...', 'class' => 'form-control'] ) }}
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-primary">
@@ -26,53 +27,60 @@
             </div>
 
         {!! Form::close() !!}
-    </div> <!-- /end .row-fluid -->
+
+    </div>
 
     <!-- Pagination -->
     <div class="row-fluid my-3">
-        {{ $categories->links() }}
-    </div> <!-- /end .row-fluid -->
+        {{ $beers->links() }}
+    </div>
 
-    <!-- Categories table -->
+
     <div class="row-fluid my-3">
+        <!-- Menu Item Table -->
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Additional Details</th>
-                        <th scope="col">Actions</th>
+                        <th scope="row">Name</th>
+                        <th scope="row">Description</th>
+                        <th scope="row">Category</th>
+                        <th scope="row">Price</th>
+                        <th scope="row">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $cat)
+                    @foreach ($beers as $beer)
                         <tr>
-                            <td>{{ $cat->name }}</td>
-                            <td>{{ $cat->details }}</td>
-                            <td style="min-width: 20%">
-                                <a href="{{ route('categories.edit', [ 'category' => $cat ]) }}" class="btn btn-info btn-sm">
+                            <td>{{ $beer->name }}</td>
+                            <td>{{ $beer->description }}</td>
+                            <td>{{ $beer->category->name }}</td>
+                            <td>{{ $beer->price }}</td>
+                            <td style="min-width: 20%;">
+                                <a href="{{ route('beers.edit', [ 'beers' => $beer ]) }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 {{-- Toggle delete confirm --}}
-                                <a class="btn btn-danger btn-sm" data-toggle="collapse" href="#deleteCategory-{{ $cat->id }}" role="button">
+                                <a class="btn btn-danger btn-sm" data-toggle="collapse" href="#deleteBeer-{{ $beer->id }}" role="button">
                                     <i class="fa fa-trash"></i> Delete
                                 </a>
                                 {{-- Collapsed form for confirming delete --}}
-                                <div class="collapse mt-2" id="deleteCategory-{{ $cat->id }}">
+                                <div class="collapse mt-2" id="deleteBeer-{{ $beer->id }}">
                                     Are you sure?
                                     {{-- "Yes" form --}}
-                                    {!! Form::open([ 'route' => ['categories.destroy', $cat], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
+                                    {!! Form::open([ 'route' => ['beers.destroy', $beer], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
                                         <button type="submit" class="btn-hidden" style="color: #0086F9; cursor: pointer;">yes</button>
                                     {!! Form::close() !!}
                                     &nbsp;/&nbsp; <!-- Choice separator " / "-->
                                     {{-- "No" toggle closed confirm --}}
-                                    <a data-toggle="collapse" href="#deleteDish-{{ $cat->id }}" role="button"> no</a>
+                                    <a data-toggle="collapse" href="#deleteBeer-{{ $beer->id }}" role="button"> no</a>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
-        </div> <!-- /end .table-responsive -->
-    </div> <!-- /end .row-fluid -->
+            </table>
+        </div>
+    </div>
 
 @endsection

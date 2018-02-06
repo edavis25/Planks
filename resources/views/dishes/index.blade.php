@@ -14,7 +14,7 @@
     <!-- Search bar -->
     <div class="row-fluid my-3">
 
-        {!! Form::open([ 'url' => '/dishes', 'method' => 'GET' ]) !!}
+        {!! Form::open([ 'route' => 'dishes.index', 'method' => 'GET' ]) !!}
 
             <div class="input-group mb-3">
 

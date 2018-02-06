@@ -49,14 +49,16 @@ class CategoryController extends Controller
             $category->save();
         }
         catch (\Exception $e) {
-            $request->session()->flash('flash_message', 'Something went wrong creating your category.');
-            $request->session()->flash('flash_status', 'danger');
-            $request->session()->flash('flash_details', $e->errorInfo[2]);
+            //$request->session()->flash('flash_message', 'Something went wrong creating your category.');
+            //$request->session()->flash('flash_status', 'danger');
+            //$request->session()->flash('flash_details', $e->errorInfo[2]);
+            \App\Helpers\FlashMessage::danger('Something went wrong creating your category.', $e->errorInfo[2]);
             return back()->withInput();
         }
 
-        $request->session()->flash('flash_message', $category->name . ' has been created.');
-        $request->session()->flash('flash_status', 'success');
+        //$request->session()->flash('flash_message', $category->name . ' has been created.');
+        //$request->session()->flash('flash_status', 'success');
+        \App\Helpers\FlashMessage::success($category->name . ' has been created.');
 
         return redirect()->action('CategoryController@index');
     }
@@ -95,8 +97,9 @@ class CategoryController extends Controller
         // TODO: Add some validation
         $category->update($request->all());
 
-        $request->session()->flash('flash_message', $category->name . ' has been updated.');
-        $request->session()->flash('flash_status', 'success');
+        //$request->session()->flash('flash_message', $category->name . ' has been updated.');
+        //$request->session()->flash('flash_status', 'success');
+        \App\Helpers\FlashMessage::success($category->name . ' has been updated.');
 
         return redirect()->action('CategoryController@index');
     }
@@ -112,8 +115,9 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        $request->session()->flash('flash_message', $category->name . ' has been deleted.');
-        $request->session()->flash('flash_status', 'success');
+        //$request->session()->flash('flash_message', $category->name . ' has been deleted.');
+        //$request->session()->flash('flash_status', 'success');
+        \App\Helpers\FlashMessage::success($category->name . ' has been deleted.');
 
         return redirect()->action('CategoryController@index');
     }

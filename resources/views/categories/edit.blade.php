@@ -15,11 +15,15 @@
 
     @include('partials.category-form')
 
-    <h4 class="mt-5 mb-0">Dishes associated with this category:</h4>
+    <h4 class="mt-5 mb-0">Items associated with this category:</h4>
     <small><em>Note: To change items associated with this category you must edit the menu item itself</em></small>
     <div class="list-group">
         @foreach ($category->dishes as $dish)
             <a href="{{ route('dishes.edit', $dish) }}" class="list-group-item list-group-item-action">{{ $dish->name }}</a>
+        @endforeach
+
+        @foreach ($category->beers as $beer)
+            <a href="{{ route('beers.edit', $beer) }}" class="list-group-item list-group-item-action">{{ $beer->name }}</a>
         @endforeach
     </div>
 

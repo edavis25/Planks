@@ -29,7 +29,7 @@
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-beer pr-2"></i>
-                <a class="sidebar-link" href="#">Beers</a>
+                <a class="sidebar-link" href="{{ url('/beers') }}">Beers</a>
             </div>
             <div class="sidebar-item bg-gray" id="special-accordian" data-toggle="collapse" data-target="#special-collapsed">
                 <a class="sidebar-link" href="#">Daily Specials</a>
@@ -52,7 +52,7 @@
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-user pr-2"></i>
-                <a class="sidebar-link" href="#">Manage Users</a>
+                <a class="sidebar-link" href="{{ route('users.index') }}">Manage Users</a>
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-key pr-2"></i>

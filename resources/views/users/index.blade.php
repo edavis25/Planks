@@ -2,21 +2,25 @@
 
 @section('admin-header')
 
-    <a class="btn btn-success text-white mb-2" href="{{ route('categories.create') }}">
-        <i class="fa fa-plus"></i> New Category
+    <a class="btn btn-info text-white mb-2" href="{{ URL::previous() }}">
+        <i class="fa fa-arrow-left"></i>
+        Back
     </a>
-    <h1>Categories</h1>
+    <h1>Users</h1>
 
 @endsection
 
+
 @section('admin-content')
+
     <!-- Search bar -->
     <div class="row-fluid my-3">
-        {!! Form::open([ 'route' => 'categories.index', 'method' => 'GET' ]) !!}
+
+        {!! Form::open([ 'route' => 'users.index', 'method' => 'GET' ]) !!}
 
             <div class="input-group mb-3">
 
-                 {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search categories by name...', 'class' => 'form-control'] ) }}
+                {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search users by name...', 'class' => 'form-control'] ) }}
 
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-primary">
@@ -26,53 +30,62 @@
             </div>
 
         {!! Form::close() !!}
-    </div> <!-- /end .row-fluid -->
+
+    </div>
 
     <!-- Pagination -->
     <div class="row-fluid my-3">
-        {{ $categories->links() }}
-    </div> <!-- /end .row-fluid -->
+        {{ $users->links() }}
+    </div>
 
-    <!-- Categories table -->
     <div class="row-fluid my-3">
+        <!-- Users Table -->
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Additional Details</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Permission Level</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categories as $cat)
+                    @foreach ($users as $user)
                         <tr>
-                            <td>{{ $cat->name }}</td>
-                            <td>{{ $cat->details }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                @if ($user->is_super_user)
+                                    Super User
+                                @elseif ($user->is_admin)
+                                    Administrator
+                                @else
+                                    No Permissions
+                                @endif
+                            </td>
                             <td style="min-width: 20%">
-                                <a href="{{ route('categories.edit', [ 'category' => $cat ]) }}" class="btn btn-info btn-sm">
+                                <a href="{{ route('users.edit', [ 'user' => $user ]) }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 {{-- Toggle delete confirm --}}
-                                <a class="btn btn-danger btn-sm" data-toggle="collapse" href="#deleteCategory-{{ $cat->id }}" role="button">
+                                <a class="btn btn-danger btn-sm" data-toggle="collapse" href="#deleteUser-{{ $user->id }}" role="button">
                                     <i class="fa fa-trash"></i> Delete
                                 </a>
                                 {{-- Collapsed form for confirming delete --}}
-                                <div class="collapse mt-2" id="deleteCategory-{{ $cat->id }}">
+                                <div class="collapse mt-2" id="deleteUser-{{ $user->id }}">
                                     Are you sure?
                                     {{-- "Yes" form --}}
-                                    {!! Form::open([ 'route' => ['categories.destroy', $cat], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
+                                    {!! Form::open([ 'route' => ['users.destroy', $user], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
                                         <button type="submit" class="btn-hidden" style="color: #0086F9; cursor: pointer;">yes</button>
                                     {!! Form::close() !!}
                                     &nbsp;/&nbsp; <!-- Choice separator " / "-->
                                     {{-- "No" toggle closed confirm --}}
-                                    <a data-toggle="collapse" href="#deleteDish-{{ $cat->id }}" role="button"> no</a>
+                                    <a data-toggle="collapse" href="#deleteUser-{{ $user->id }}" role="button"> no</a>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
-        </div> <!-- /end .table-responsive -->
-    </div> <!-- /end .row-fluid -->
 
 @endsection

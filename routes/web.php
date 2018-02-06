@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::resource('beers', 'BeerController');
 Route::resource('dishes', 'DishController');
 Route::resource('categories', 'CategoryController');
+Route::resource('users', 'UserController');
 
 Auth::routes();
 
