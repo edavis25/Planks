@@ -7,6 +7,13 @@ use App\User;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        //$this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -63,24 +70,37 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->is_admin = $request->input('is_admin') ? true : false;
+        $user->is_super_user = $request->input('is_super_user') ? true : false;
+
+        try {
+            $user->save();
+            \App\Helpers\FlashMessage::success($user->name . ' has been updated.');
+            return redirect()->action('UserController@index');
+        }
+        catch (\Exception $e) {
+            \App\Helpers\FlashMessage::danger('Something went wrong updating the user.', $e->errorInfo[2]);
+            return back()->withInput();
+        }
     }
 
     /**
