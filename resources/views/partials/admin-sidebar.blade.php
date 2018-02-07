@@ -56,7 +56,7 @@
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-key pr-2"></i>
-                <a class="sidebar-link" href="#">Registration Code</a>
+                <a class="sidebar-link" href="{{ route('create_code') }}">Registration Code</a>
             </div>
 
             <div class="sidebar-item bg-gray-dark text-gray-lighter">
@@ -64,7 +64,15 @@
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-sign-out pr-2"></i>
-                <a class="sidebar-link" href="#">Logout</a>
+                <a href="{{ route('logout') }}" class="sidebar-link"
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;" class="dropdown-item form-inline my-2 my-lg-0">
+                    {{ csrf_field() }}
+                </form>
             </div>
         </div>
     </section>

@@ -24,5 +24,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@index');
-Route::get('/admin/registration_code', 'AdminController@create_registration_code');
+Route::get('/admin/create_code', 'AdminController@create_registration_code')->name('create_code');
+Route::post('/admin/generate_code', 'AdminController@generate_registration_code')->name('generate_code');
+//Route::get('/admin/registration_code', 'AdminController@create_registration_code');

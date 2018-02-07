@@ -8,9 +8,17 @@ use App\Category;
 
 class DishController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
@@ -88,9 +96,7 @@ class DishController extends Controller
     public function edit(Dish $dish)
     {
         // Get array of categories to populate select box:
-        // pluck the collection to create array that matches input expected by select
-        // box. Each <option> value = the array's values (category_id) and the array's
-        // keys are shown to user as the text inside the dropdown select box
+        // (more detailed description of logic in "create" function above)
         $categories = Category::all()->pluck('name', 'id')->toArray();
 
         return view('dishes.edit', compact('dish', 'categories'));
