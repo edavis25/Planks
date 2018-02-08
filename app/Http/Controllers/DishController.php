@@ -62,18 +62,13 @@ class DishController extends Controller
         try {
             $dish = new Dish($request->all());
             $dish->save();
+            \App\Helpers\FlashMessage::success($dish->name . ' has been created.');
+            return redirect()->action('DishController@index');
         }
         catch (\Exception $e) {
-            $request->session()->flash('flash_message', 'Something went wrong creating your item.');
-            $request->session()->flash('flash_status', 'danger');
-            $request->session()->flash('flash_details', $e->errorInfo[2]);
+            \App\Helpers\FlashMessage::danger('Something went wrong creating your dish.', $e->errorInfo[2]);
             return back()->withInput();
         }
-
-        $request->session()->flash('flash_message', $dish->name . ' has been created.');
-        $request->session()->flash('flash_status', 'success');
-
-        return redirect()->action('DishController@index');
     }
 
     /**
@@ -84,7 +79,8 @@ class DishController extends Controller
      */
     public function show(Request $request, Dish $dish)
     {
-        return view('dishes.show', compact('dish'));
+        //return view('dishes.show', compact('dish'));
+        abort(404);
     }
 
     /**
@@ -114,10 +110,9 @@ class DishController extends Controller
         // TODO: Add some validation
         $dish->update($request->all());
 
-        $request->session()->flash('flash_message', $dish->name . ' has been updated.');
-        $request->session()->flash('flash_status', 'success');
+        \App\Helpers\FlashMessage::success($dish->name . ' has been updated.');
 
-        return redirect()->action('DishController@show', [$dish]);
+        return redirect()->action('DishController@index', [$dish]);
     }
 
     /**
@@ -131,8 +126,7 @@ class DishController extends Controller
     {
         $dish->delete();
 
-        $request->session()->flash('flash_message', $dish->name . ' has been deleted.');
-        $request->session()->flash('flash_status', 'success');
+        \App\Helpers\FlashMessage::success($dish->name . ' has been deleted.');
 
         return redirect()->action('DishController@index');
     }

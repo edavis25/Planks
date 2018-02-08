@@ -25,6 +25,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // NOTE: Don't forget to set your Crontab!
+        // Also NOTE: Depending on when the cron script runs, these codes could
+        // exist longer than 24 hours. Refactor if this is an issue (probably not)
         $schedule->call(function() {
             \App\RegistrationCode::where('used', false)->each(function($code) {
                 $created = strtotime($code->created_at);
