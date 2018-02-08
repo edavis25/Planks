@@ -24,8 +24,15 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // NOTE: Don't forget to set your Crontab!
+        $schedule->call(function() {
+            \App\RegistrationCode::where('used', false)->each(function($code) {
+                $created = strtotime($code->created_at);
+                if ($created <= strtotime("-1 day")) {
+                    $code->delete();
+                }
+            });
+        })->daily();
     }
 
     /**

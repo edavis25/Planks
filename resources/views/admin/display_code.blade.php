@@ -13,6 +13,7 @@
 @section('admin-content')
     <p>
         Your registration code has been created! Provide this code so a user can create a new account.
+        <br><b>This code expires in 24 hours</b>
     </p>
     <p class="text-danger">
         <i class="fa fa-warning"></i><em> After leaving this page, this code cannot be recovered.</em>

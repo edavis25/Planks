@@ -21,15 +21,15 @@
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-list-ul pr-2"></i>
-                <a class="sidebar-link" href="{{ url('/categories') }}">Menu Categories</a>
+                <a class="sidebar-link" href="{{ route('categories.index') }}">Menu Categories</a>
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-cutlery pr-2"></i>
-                <a class="sidebar-link" href="{{ url('/dishes') }}">Dishes</a>
+                <a class="sidebar-link" href="{{ route('dishes.index') }}">Dishes</a>
             </div>
             <div class="sidebar-item bg-gray-light">
                 <i class="fa fa-beer pr-2"></i>
-                <a class="sidebar-link" href="{{ url('/beers') }}">Beers</a>
+                <a class="sidebar-link" href="{{ route('beers.index') }}">Beers</a>
             </div>
             <div class="sidebar-item bg-gray" id="special-accordian" data-toggle="collapse" data-target="#special-collapsed">
                 <a class="sidebar-link" href="#">Daily Specials</a>

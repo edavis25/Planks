@@ -33,6 +33,7 @@
         <li>Codes that have already been generated cannot be retrieved later</li>
         <li>Codes are only required for initial registration</li>
         <li>After registration, users will need to be granted permissions by a Super User</li>
+        <li>Unused registration codes will <b>expire after 24 hours</b></li>
     </ul>
 
     <a href="{{ route('generate_code') }}" class="btn btn-success mt-5 ml-4"
