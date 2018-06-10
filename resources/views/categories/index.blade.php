@@ -2,14 +2,18 @@
 
 @section('admin-header')
 
-    <a class="btn btn-success text-white mb-2" href="{{ route('admin.categories.create') }}">
-        <i class="fa fa-plus"></i> New Category
-    </a>
     <h1>Categories</h1>
 
 @endsection
 
 @section('admin-content')
+
+    <div class="row-fluid">
+        <a class="btn btn-success text-white mb-2" href="{{ route('admin.categories.create') }}">
+            <i class="fa fa-plus"></i> New Category
+        </a>
+    </div>
+
     <!-- Search bar -->
     <div class="row-fluid my-3">
         {!! Form::open([ 'route' => 'admin.categories.index', 'method' => 'GET' ]) !!}
@@ -72,6 +76,7 @@
                         </tr>
                     @endforeach
                 </tbody>
+            </table>
         </div> <!-- /end .table-responsive -->
     </div> <!-- /end .row-fluid -->
 

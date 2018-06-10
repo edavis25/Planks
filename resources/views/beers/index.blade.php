@@ -2,14 +2,18 @@
 
 @section('admin-header')
 
-    <a class="btn btn-success text-white mb-2" href="{{ url('/beers/create') }}">
-        <i class="fa fa-plus"></i> New Beer
-    </a>
     <h1>Beers</h1>
 
 @endsection
 
 @section('admin-content')
+
+    <div class="row-fluid">
+        <a class="btn btn-success text-white mb-2" href="{{ url('/beers/create') }}">
+            <i class="fa fa-plus"></i> New Beer
+        </a>
+    </div>
+
     <!-- Search bar -->
     <div class="row-fluid my-3">
 

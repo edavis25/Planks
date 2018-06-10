@@ -7,7 +7,7 @@
 
     <div id="admin-content">
         <h1>Admin Dashboard</h1>
-        
+
     </div> <!-- /end #admin-content -->
 
 </div> <!-- /end #admin-wrapper -->
