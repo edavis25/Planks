@@ -29,7 +29,7 @@ Route::group([
     Route::resource('beers', 'BeerController');
     Route::resource('dishes', 'DishController');
     Route::resource('categories', 'CategoryController');
-    Route::resource('users', 'UserController');
+    Route::resource('users', 'UserController')->only(['index', 'edit', 'update', 'destroy']);
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

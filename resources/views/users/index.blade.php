@@ -16,7 +16,7 @@
     <!-- Search bar -->
     <div class="row-fluid my-3">
 
-        {!! Form::open([ 'route' => 'users.index', 'method' => 'GET' ]) !!}
+        {!! Form::open([ 'route' => 'admin.users.index', 'method' => 'GET' ]) !!}
 
             <div class="input-group mb-3">
 
@@ -65,7 +65,7 @@
                                 @endif
                             </td>
                             <td style="min-width: 20%">
-                                <a href="{{ route('users.edit', [ 'user' => $user ]) }}" class="btn btn-info btn-sm">
+                                <a href="{{ route('admin.users.edit', [ 'user' => $user ]) }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 {{-- Toggle delete confirm --}}
@@ -76,7 +76,7 @@
                                 <div class="collapse mt-2" id="deleteUser-{{ $user->id }}">
                                     Are you sure?
                                     {{-- "Yes" form --}}
-                                    {!! Form::open([ 'route' => ['users.destroy', $user], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
+                                    {!! Form::open([ 'route' => ['admin.users.destroy', $user], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
                                         <button type="submit" class="btn-hidden" style="color: #0086F9; cursor: pointer;">yes</button>
                                     {!! Form::close() !!}
                                     &nbsp;/&nbsp; <!-- Choice separator " / "-->
