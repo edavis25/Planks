@@ -18,9 +18,13 @@ class CreateBeersTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('price');    // String because of things like sm...$6.75 lg...$10.00
-            $table->integer('category_id');
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->unsignedInteger('category_id');
             $table->timestamps();
+        });
+
+        // Add in foreign key constraints
+        Schema::table('beers', function (Blueprint $table) {
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
@@ -31,6 +35,9 @@ class CreateBeersTable extends Migration
      */
     public function down()
     {
+        Schema::table('beers', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
+        });
         Schema::dropIfExists('beers');
     }
 }

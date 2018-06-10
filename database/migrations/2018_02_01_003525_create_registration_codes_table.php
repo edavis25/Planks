@@ -17,11 +17,15 @@ class CreateRegistrationCodesTable extends Migration
             $table->increments('id');
             $table->string('code');
             $table->boolean('used');
-            $table->integer('created_by_user_id');
-            $table->foreign('created_by_user_id')->references('id')->on('users');
-            $table->integer('code_used_by_user_id')->nullable();
-            $table->foreign('code_used_by_user_id')->references('id')->on('users');
+            $table->unsignedInteger('created_by_user_id');
+            $table->unsignedInteger('code_used_by_user_id')->nullable();
             $table->timestamps();
+        });
+
+        // Add in foreign key constraints
+        Schema::table('registration_codes', function (Blueprint $table) {
+            $table->foreign('created_by_user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('code_used_by_user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -32,6 +36,10 @@ class CreateRegistrationCodesTable extends Migration
      */
     public function down()
     {
+        Schema::table('registration_codes', function(Blueprint $table) {
+            $table->dropForeign(['created_by_user_id']);
+            $table->dropForeign(['code_used_by_user_id']);
+        });
         Schema::dropIfExists('registration_codes');
     }
 }
