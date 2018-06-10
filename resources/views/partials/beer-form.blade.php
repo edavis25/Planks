@@ -3,9 +3,9 @@
   -- or create a blank form if none given (ie. creating new)
 --}}
 @if (isset($beer))
-    {!! Form::model($beer, [ 'route' => ['beers.update', $beer], 'method' => 'PUT' ] ) !!}
+    {!! Form::model($beer, [ 'route' => ['admin.beers.update', $beer], 'method' => 'PUT' ] ) !!}
 @else
-    {!! Form::open([ 'route' => 'beers.store', 'method' => 'POST' ]) !!}
+    {!! Form::open([ 'route' => 'admin.beers.store', 'method' => 'POST' ]) !!}
 @endif
 
 {{-- Display the actual form fields --}}

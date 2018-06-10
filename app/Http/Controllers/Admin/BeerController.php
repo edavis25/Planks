@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Helpers\FlashMessage;
 use Illuminate\Http\Request;
 use App\Beer;
 use App\Category;
+use App\Http\Controllers\Controller;
 
 class BeerController extends Controller
 {
@@ -23,7 +25,7 @@ class BeerController extends Controller
             $beers->where('name', 'like', "%{$request->input('search')}%");
         }
 
-        $beers = $beers->paginate(5);
+        $beers = $beers->paginate(10);
         return view('beers.index', compact('beers'));
     }
 
@@ -55,12 +57,12 @@ class BeerController extends Controller
             $beer = new Beer($request->all());
             $beer->save();
 
-            \App\Helpers\FlashMessage::success($beer->name . ' has been created.');
+            FlashMessage::success($beer->name . ' has been created.');
 
-            return redirect()->action('BeerController@index');
+            return redirect()->route('admin.beers.index');
         }
         catch (\Exception $e) {
-            \App\Helpers\FlashMessage::danger('Something went wrong creating your category.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong creating your beer.', $e->getMessage());
             return back()->withInput();
         }
     }
@@ -100,12 +102,12 @@ class BeerController extends Controller
         // TODO: Add some validation
         try {
             $beer->update($request->all());
-            \App\Helpers\FlashMessage::success($beer->name . ' has been updated.');
+            FlashMessage::success($beer->name . ' has been updated.');
 
-            return redirect()->action('BeerController@index', [$beer]);
+            return redirect()->route('admin.beers.index');
         }
         catch (\Exception $e) {
-            \App\Helpers\FlashMessage::danger('Something went wrong creating your beer.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong creating your beer.', $e->getMessage());
 
             return back()->withInput();
         }
@@ -121,11 +123,12 @@ class BeerController extends Controller
     {
         try {
             $beer->delete();
-            \App\Helpers\FlashMessage::success($beer->name . ' has been deleted.');
-            return redirect()->action('BeerController@index');
+            FlashMessage::success($beer->name . ' has been deleted.');
+
+            return redirect()->route('admin.beers.index');
         }
         catch (\Exception $e) {
-            \App\Helpers\FlashMessage::danger('Something went wrong deleting your beer.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong deleting your beer.', $e->getMessage());
 
             return back();
         }

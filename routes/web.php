@@ -15,12 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('beers', 'BeerController');
-Route::resource('dishes', 'DishController');
-Route::resource('categories', 'CategoryController');
-Route::resource('users', 'UserController');
-
 Auth::routes();
+
+/**
+ * Admin Routes
+ */
+Route::group([
+    'as'         => 'admin.',
+    'middleware' => ['auth', 'admin'],
+    'namespace'  => 'Admin'
+], function() {
+    Route::get('/admin', ['as' => 'dashboard', 'uses' => 'AdminController@index']);
+    Route::resource('beers', 'BeerController');
+    Route::resource('dishes', 'DishController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('users', 'UserController');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 

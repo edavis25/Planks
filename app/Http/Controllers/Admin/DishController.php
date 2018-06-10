@@ -1,19 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Helpers\FlashMessage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Dish;
 use App\Category;
 
 class DishController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('admin');
-    }
 
     /**
      * Display a listing of the resource.
@@ -62,11 +58,13 @@ class DishController extends Controller
         try {
             $dish = new Dish($request->all());
             $dish->save();
-            \App\Helpers\FlashMessage::success($dish->name . ' has been created.');
-            return redirect()->action('DishController@index');
+
+            FlashMessage::success($dish->name . ' has been created.');
+
+            return redirect()->route('admin.dishes.index');
         }
         catch (\Exception $e) {
-            \App\Helpers\FlashMessage::danger('Something went wrong creating your dish.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong creating your dish.', $e->getMessage());
             return back()->withInput();
         }
     }
@@ -110,9 +108,9 @@ class DishController extends Controller
         // TODO: Add some validation
         $dish->update($request->all());
 
-        \App\Helpers\FlashMessage::success($dish->name . ' has been updated.');
+        FlashMessage::success($dish->name . ' has been updated.');
 
-        return redirect()->action('DishController@index', [$dish]);
+        return redirect()->route('admin.dishes.index');
     }
 
     /**
@@ -124,10 +122,15 @@ class DishController extends Controller
      */
     public function destroy(Request $request, Dish $dish)
     {
-        $dish->delete();
+        try {
+            $dish->delete();
+            FlashMessage::success($dish->name . ' has been deleted.');
 
-        \App\Helpers\FlashMessage::success($dish->name . ' has been deleted.');
-
-        return redirect()->action('DishController@index');
+            return redirect()->route('admin.dishes.index');
+        }
+        catch (\Exception $e) {
+            FlashMessage::danger('Something went wrong creating your dish.', $e->getMessage());
+            return back()->withInput();
+        }
     }
 }
