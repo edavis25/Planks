@@ -13,7 +13,8 @@ class Beer extends Model
     */
     protected $fillable = ['name', 'description', 'price', 'category_id'];
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo('App\Category');
     }
 }

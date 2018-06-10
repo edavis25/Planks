@@ -87,6 +87,11 @@
     #admin-content {
       margin-left: 0; } }
 
+@media (min-width: 768px) {
+  .select-filter-right {
+    position: absolute;
+    right: 0; } }
+
 .pagination li {
   display: inline-block;
   float: left;
