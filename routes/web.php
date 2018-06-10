@@ -25,15 +25,12 @@ Route::group([
     'middleware' => ['auth', 'admin'],
     'namespace'  => 'Admin'
 ], function() {
-    Route::get('/admin', ['as' => 'dashboard', 'uses' => 'AdminController@index']);
+    Route::resource('admin', 'AdminController', ['as' => 'dashboard'])->only(['index']);
     Route::resource('beers', 'BeerController');
     Route::resource('dishes', 'DishController');
     Route::resource('categories', 'CategoryController');
-    Route::resource('users', 'UserController')->only(['index', 'edit', 'update', 'destroy']);
+    Route::resource('users', 'UserController')->only(['index', 'edit', 'update', 'destroy'])->middleware('superuser');
+    Route::resource('registration-code', 'RegistrationCodeController')->only(['create', 'store'])->middleware('superuser');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/admin/create_code', 'AdminController@create_registration_code')->name('create_code');
-Route::post('/admin/generate_code', 'AdminController@generate_registration_code')->name('generate_code');
-//Route::get('/admin/registration_code', 'AdminController@create_registration_code');

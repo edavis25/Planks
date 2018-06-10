@@ -13,7 +13,9 @@
 @section('admin-content')
     <p>
         Your registration code has been created! Provide this code so a user can create a new account.
-        <br><b>This code expires in 24 hours</b>
+    </p>
+    <p>
+        The code below cannot be recovered. If it is lost or expires, you must create a new code.
     </p>
     <p class="text-danger">
         <i class="fa fa-warning"></i><em> After leaving this page, this code cannot be recovered.</em>
@@ -26,4 +28,5 @@
     <div class="alert alert-primary">
         <h4>{{ $code }}</h4>
     </div>
+    <strong>This code will expire on: <em>{{ $exp_date }}</em></strong>
 @endsection
