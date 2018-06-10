@@ -3,9 +3,9 @@
   -- or create a blank form if none given (ie. creating new)
 --}}
 @if (isset($category))
-    {!! Form::model($category, [ 'route' => ['categories.update', $category], 'method' => 'PUT' ] ) !!}
+    {!! Form::model($category, [ 'route' => ['admin.categories.update', $category], 'method' => 'PUT' ] ) !!}
 @else
-    {!! Form::open([ 'route' => 'categories.store', 'method' => 'POST' ]) !!}
+    {!! Form::open([ 'route' => 'admin.categories.store', 'method' => 'POST' ]) !!}
 @endif
 
 {{-- Display the actual form fields --}}

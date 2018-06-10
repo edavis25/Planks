@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FlashMessage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Category;
 
 class CategoryController extends Controller
@@ -23,7 +24,7 @@ class CategoryController extends Controller
             $categories->where('name', 'like', "%{$request->input('search')}%");
         }
 
-        $categories = $categories->paginate(5);
+        $categories = $categories->paginate(10);
         return view('categories.index', compact('categories'));
     }
 

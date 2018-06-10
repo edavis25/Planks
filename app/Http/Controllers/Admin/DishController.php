@@ -27,7 +27,7 @@ class DishController extends Controller
             $dishes->where('name', 'like', "%{$request->input('search')}%");
         }
 
-        $dishes = $dishes->paginate(5);
+        $dishes = $dishes->paginate(10);
         return view('dishes.index', compact('dishes'));
     }
 
