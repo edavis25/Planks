@@ -8,6 +8,18 @@
     {!! Form::open([ 'route' => 'admin.beers.store', 'method' => 'POST' ]) !!}
 @endif
 
+{{-- Display any validation errors --}}
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Error!</strong>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 {{-- Display the actual form fields --}}
 <div class="form-group">
     {{ Form::label('name', 'Name') }}

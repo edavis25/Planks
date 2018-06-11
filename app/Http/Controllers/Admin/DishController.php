@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FlashMessage;
+use App\Http\Requests\DishRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Dish;
@@ -54,10 +55,11 @@ class DishController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\DishRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DishRequest $request)
     {
         try {
             $dish = new Dish($request->all());
@@ -103,13 +105,13 @@ class DishController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dish $dish (route-model binding)
+     * @param  \App\Http\Requests\DishRequest  $request
+     * @param  \App\Dish                       $dish (route-model binding)
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dish $dish)
+    public function update(DishRequest $request, Dish $dish)
     {
-        // TODO: Add some validation
         $dish->update($request->all());
 
         FlashMessage::success($dish->name . ' has been updated.');
