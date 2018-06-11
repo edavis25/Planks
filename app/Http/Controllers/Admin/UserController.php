@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Helpers\FlashMessage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\User;
 
 class UserController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        //$this->middleware('admin');
-    }
 
     /**
      * Display a listing of the resource.
@@ -34,43 +30,10 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // Creating users handled by registration
-        abort(404);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // Creating users handled by registration
-        abort(404);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        abort(404);
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\User  $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
@@ -82,7 +45,8 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\User                 $user
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
@@ -94,11 +58,13 @@ class UserController extends Controller
 
         try {
             $user->save();
-            \App\Helpers\FlashMessage::success($user->name . ' has been updated.');
-            return redirect()->action('UserController@index');
+            FlashMessage::success($user->name . ' has been updated.');
+
+            return redirect()->route('admin.users.index');
         }
         catch (\Exception $e) {
-            \App\Helpers\FlashMessage::danger('Something went wrong updating the user.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong updating the user.', $e->getMessage());
+
             return back()->withInput();
         }
     }
@@ -106,18 +72,21 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(User $user)
     {
         try {
             $user->delete();
-            \App\Helpers\FlashMessage::success($user->name . ' has been deleted.');
-            return redirect()->action('UserController@index');
+
+            FlashMessage::success($user->name . ' has been deleted.');
+            return redirect()->route('admin.users.index');
         }
         catch (\Excecption $e) {
-            \App\Helpers\FlashMessage::danger('Something went wrong deleting your user.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong deleting your user.', $e->getMessage());
             return back();
         }
     }

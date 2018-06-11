@@ -11,7 +11,7 @@
 @endsection
 
 @section('admin-content')
-    {!! Form::model($user, [ 'route' => ['users.update', $user], 'method' => 'PUT' ] ) !!}
+    {!! Form::model($user, [ 'route' => ['admin.users.update', $user], 'method' => 'PUT' ] ) !!}
 
     <div class="form-group">
         {{ Form::label('name', 'Name') }}

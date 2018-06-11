@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Helpers\FlashMessage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Category;
 
 class CategoryController extends Controller
@@ -22,7 +24,7 @@ class CategoryController extends Controller
             $categories->where('name', 'like', "%{$request->input('search')}%");
         }
 
-        $categories = $categories->paginate(5);
+        $categories = $categories->paginate(10);
         return view('categories.index', compact('categories'));
     }
 
@@ -49,18 +51,14 @@ class CategoryController extends Controller
             $category->save();
         }
         catch (\Exception $e) {
-            //$request->session()->flash('flash_message', 'Something went wrong creating your category.');
-            //$request->session()->flash('flash_status', 'danger');
-            //$request->session()->flash('flash_details', $e->errorInfo[2]);
-            \App\Helpers\FlashMessage::danger('Something went wrong creating your category.', $e->errorInfo[2]);
+            FlashMessage::danger('Something went wrong creating your category.', $e->getMessage());
+
             return back()->withInput();
         }
 
-        //$request->session()->flash('flash_message', $category->name . ' has been created.');
-        //$request->session()->flash('flash_status', 'success');
-        \App\Helpers\FlashMessage::success($category->name . ' has been created.');
+        FlashMessage::success($category->name . ' has been created.');
 
-        return redirect()->action('CategoryController@index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -97,11 +95,9 @@ class CategoryController extends Controller
         // TODO: Add some validation
         $category->update($request->all());
 
-        //$request->session()->flash('flash_message', $category->name . ' has been updated.');
-        //$request->session()->flash('flash_status', 'success');
-        \App\Helpers\FlashMessage::success($category->name . ' has been updated.');
+        FlashMessage::success($category->name . ' has been updated.');
 
-        return redirect()->action('CategoryController@index');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -113,12 +109,16 @@ class CategoryController extends Controller
      */
     public function destroy(Request $request, Category $category)
     {
-        $category->delete();
+        try {
+            $category->delete();
+            FlashMessage::success($category->name . ' has been deleted.');
 
-        //$request->session()->flash('flash_message', $category->name . ' has been deleted.');
-        //$request->session()->flash('flash_status', 'success');
-        \App\Helpers\FlashMessage::success($category->name . ' has been deleted.');
+            return redirect()->route('admin.categories.index');
+        }
+        catch (\Exception $e) {
+            FlashMessage::danger('Something went wrong deleting your category.', $e->getMessage());
 
-        return redirect()->action('CategoryController@index');
+            return back();
+        }
     }
 }

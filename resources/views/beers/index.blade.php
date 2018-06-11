@@ -2,18 +2,22 @@
 
 @section('admin-header')
 
-    <a class="btn btn-success text-white mb-2" href="{{ url('/beers/create') }}">
-        <i class="fa fa-plus"></i> New Beer
-    </a>
     <h1>Beers</h1>
 
 @endsection
 
 @section('admin-content')
+
+    <div class="row-fluid">
+        <a class="btn btn-success text-white mb-2" href="{{ url('/beers/create') }}">
+            <i class="fa fa-plus"></i> New Beer
+        </a>
+    </div>
+
     <!-- Search bar -->
     <div class="row-fluid my-3">
 
-        {!! Form::open([ 'route' => 'beers.index', 'method' => 'GET' ]) !!}
+        {!! Form::open([ 'route' => 'admin.beers.index', 'method' => 'GET' ]) !!}
 
             <div class="input-group mb-3">
 
@@ -57,7 +61,7 @@
                             <td>{{ $beer->category->name }}</td>
                             <td>{{ $beer->price }}</td>
                             <td style="min-width: 20%;">
-                                <a href="{{ route('beers.edit', [ 'beers' => $beer ]) }}" class="btn btn-info btn-sm">
+                                <a href="{{ route('admin.beers.edit', [ 'beers' => $beer ]) }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 {{-- Toggle delete confirm --}}
@@ -68,7 +72,7 @@
                                 <div class="collapse mt-2" id="deleteBeer-{{ $beer->id }}">
                                     Are you sure?
                                     {{-- "Yes" form --}}
-                                    {!! Form::open([ 'route' => ['beers.destroy', $beer], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
+                                    {!! Form::open([ 'route' => ['admin.beers.destroy', $beer], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
                                         <button type="submit" class="btn-hidden" style="color: #0086F9; cursor: pointer;">yes</button>
                                     {!! Form::close() !!}
                                     &nbsp;/&nbsp; <!-- Choice separator " / "-->

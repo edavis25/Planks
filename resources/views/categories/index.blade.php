@@ -2,17 +2,21 @@
 
 @section('admin-header')
 
-    <a class="btn btn-success text-white mb-2" href="{{ route('categories.create') }}">
-        <i class="fa fa-plus"></i> New Category
-    </a>
     <h1>Categories</h1>
 
 @endsection
 
 @section('admin-content')
+
+    <div class="row-fluid">
+        <a class="btn btn-success text-white mb-2" href="{{ route('admin.categories.create') }}">
+            <i class="fa fa-plus"></i> New Category
+        </a>
+    </div>
+
     <!-- Search bar -->
     <div class="row-fluid my-3">
-        {!! Form::open([ 'route' => 'categories.index', 'method' => 'GET' ]) !!}
+        {!! Form::open([ 'route' => 'admin.categories.index', 'method' => 'GET' ]) !!}
 
             <div class="input-group mb-3">
 
@@ -50,7 +54,7 @@
                             <td>{{ $cat->name }}</td>
                             <td>{{ $cat->details }}</td>
                             <td style="min-width: 20%">
-                                <a href="{{ route('categories.edit', [ 'category' => $cat ]) }}" class="btn btn-info btn-sm">
+                                <a href="{{ route('admin.categories.edit', [ 'category' => $cat ]) }}" class="btn btn-info btn-sm">
                                     <i class="fa fa-pencil"></i> Edit
                                 </a>
                                 {{-- Toggle delete confirm --}}
@@ -61,7 +65,7 @@
                                 <div class="collapse mt-2" id="deleteCategory-{{ $cat->id }}">
                                     Are you sure?
                                     {{-- "Yes" form --}}
-                                    {!! Form::open([ 'route' => ['categories.destroy', $cat], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
+                                    {!! Form::open([ 'route' => ['admin.categories.destroy', $cat], 'method' => 'DELETE', 'class' => 'd-inline-block' ]) !!}
                                         <button type="submit" class="btn-hidden" style="color: #0086F9; cursor: pointer;">yes</button>
                                     {!! Form::close() !!}
                                     &nbsp;/&nbsp; <!-- Choice separator " / "-->
@@ -72,6 +76,7 @@
                         </tr>
                     @endforeach
                 </tbody>
+            </table>
         </div> <!-- /end .table-responsive -->
     </div> <!-- /end .row-fluid -->
 

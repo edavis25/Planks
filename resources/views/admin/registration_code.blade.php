@@ -15,7 +15,7 @@
     <i class="fa fa-3x fa-info-circle text-info mb-3"></i>
     <p>
         A unique registration code is required for all new user registrations. Once a code has been generated,
-        it must be given to the user so they can enter it into the appropriate field on the account registration
+        it must be given to the user so they can enter it into the appropriate field on the account creation
         page.
     </p>
     <p>
@@ -29,19 +29,15 @@
     <ul>
         <li>Only Super Users can generate registration codes</li>
         <li>Each registration code can only be used <b>once</b></li>
-        <li>You must generate a new code for each new user</small>
+        <li>You must generate a new code for each new user</li>
         <li>Codes that have already been generated cannot be retrieved later</li>
         <li>Codes are only required for initial registration</li>
         <li>After registration, users will need to be granted permissions by a Super User</li>
         <li>Unused registration codes will <b>expire after 24 hours</b></li>
     </ul>
 
-    <a href="{{ route('generate_code') }}" class="btn btn-success mt-5 ml-4"
-        onclick="event.preventDefault();
-                 document.getElementById('reg-code').submit();">
-        <i class="fa fa-qrcode"></i> Generate New Code
-    </a>
-    <form id="reg-code" action="{{ route('generate_code') }}" method="POST" class="d-none">
+    <form id="reg-code" action="{{ route('admin.registration-code.store') }}" method="POST">
         {{ csrf_field() }}
+        <button type="submit" class="btn btn-success mt-5 ml-4"><i class="fa fa-qrcode"></i> Generate New Code</button>
     </form>
 @endsection

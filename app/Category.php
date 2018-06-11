@@ -13,11 +13,13 @@ class Category extends Model
     */
     protected $fillable = ['name', 'details'];
 
-    public function beers() {
+    public function beers()
+    {
         return $this->hasMany('App\Beer');
     }
 
-    public function dishes() {
+    public function dishes()
+    {
         return $this->hasMany('App\Dish');
     }
 
