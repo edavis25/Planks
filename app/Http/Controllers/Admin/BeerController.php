@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FlashMessage;
+use App\Http\Requests\BeerRequest;
 use Illuminate\Http\Request;
 use App\Beer;
 use App\Category;
@@ -48,10 +49,11 @@ class BeerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\BeerRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BeerRequest $request)
     {
         try {
             $beer = new Beer($request->all());
@@ -93,13 +95,12 @@ class BeerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Beer $beer (route-model binding)
+     * @param  \App\Http\Requests\BeerRequest  $request
+     * @param  \App\Beer                       $beer (route-model binding)
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Beer $beer)
+    public function update(BeerRequest $request, Beer $beer)
     {
-        // TODO: Add some validation
         try {
             $beer->update($request->all());
             FlashMessage::success($beer->name . ' has been updated.');
