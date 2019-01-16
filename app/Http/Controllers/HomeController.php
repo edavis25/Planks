@@ -2,20 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Category;
+use App\PDFMenu;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -23,6 +14,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home', [
+            'food_categories' => Category::food()->with('dishes')->get(),
+            'beer_categories' => Category::beer()->with('beers')->get(),
+            'food_pdf'        => PDFMenu::where('type', 'food')->first(),
+            'beer_pdf'        => PDFMenu::where('type', 'beer')->first(),
+            'party_pdf'       => PDFMenu::where('type', 'party')->first()
+        ]);
     }
 }
