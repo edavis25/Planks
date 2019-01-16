@@ -2,29 +2,13 @@
 
 @section('content')
 <div class="home">
-    {{--<div class="home__hero" style="background-image: url({{ asset('img/pizza-hero.png') }})">--}}
-        {{--<img class="home__hero-logo img-responsive" src="{{ asset('img/logo[white].png') }}" />--}}
-    {{--</div>--}}
-
     <div class="home__hero">
-        <img class="home__hero-img img-responsive" src="{{ asset('img/web-logo[transparent-light].png') }}" />
+        <img class="home__hero-img img-responsive" src="{{ asset('img/hero-logo.png') }}" />
     </div>
 
     <div class="home__banner">
         888 S. High St.&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;(614) 443-4570
     </div>
-
-    {{--<div class="home__banner">--}}
-        {{--<span class="home__banner-section">--}}
-            {{--<i class="fa fa-phone" aria-hidden="true"></i>--}}
-            {{--(614) 445-8333--}}
-        {{--</span>--}}
-        {{--|--}}
-        {{--<span class="home__banner-section">--}}
-            {{--<i class="fa fa-map-marker" aria-hidden="true"></i>--}}
-            {{--888 S. High Street, Columbus OH--}}
-        {{--</span>--}}
-    {{--</div>--}}
 
     <section class="home__wrapper">
 
@@ -32,7 +16,7 @@
             <div class="row center-content">
                 <div class="col-md-5 center-content">
                     <div class="home__card-img-wrapper" :class="{ active: this.showingBeer }">
-                        <img class="card-img-top" src="{{ asset('img/beer-glass[crop].png') }}" alt="Glass of beer">
+                        <img class="card-img-top" src="{{ asset('img/beer-glass.png') }}" alt="Glass of beer">
                         <span class="home__card-heading" :class="{ active: this.showingBeer }" @click="showBeer()">Beer</span>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Planks') }}</title>
 
     <!-- Bootstrap 4 -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -24,7 +24,8 @@
     <div id="app">
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        @section('navbar')
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
@@ -65,7 +66,7 @@
                 </ul>
             </div>
         </nav>
-
+        @show
         @yield('content')
 
     </div> <!-- /end #app -->
@@ -79,6 +80,11 @@
     <!-- FontAwesome -->
     <!--script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script-->
     <!-- Custom Scripts -->
-    <script src="{{ asset('js/app1.js') }}"></script>
+    {{--<script src="{{ mix('js/app.js') }}"></script>--}}
+
+    {{-- Vue 2.5.17 --}}
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+    @yield('jsEmbed')
 </body>
 </html>
