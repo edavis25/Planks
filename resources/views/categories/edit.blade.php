@@ -19,11 +19,11 @@
     <small><em>Note: To change items associated with this category you must edit the menu item itself</em></small>
     <div class="list-group">
         @foreach ($category->dishes as $dish)
-            <a href="{{ route('dishes.edit', $dish) }}" class="list-group-item list-group-item-action">{{ $dish->name }}</a>
+            <a href="{{ route('admin.dishes.edit', $dish) }}" class="list-group-item list-group-item-action">{{ $dish->name }}</a>
         @endforeach
 
         @foreach ($category->beers as $beer)
-            <a href="{{ route('beers.edit', $beer) }}" class="list-group-item list-group-item-action">{{ $beer->name }}</a>
+            <a href="{{ route('admin.beers.edit', $beer) }}" class="list-group-item list-group-item-action">{{ $beer->name }}</a>
         @endforeach
     </div>
 

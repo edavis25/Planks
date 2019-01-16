@@ -28,9 +28,11 @@ Route::group([
     Route::resource('admin', 'AdminController', ['as' => 'dashboard'])->only(['index']);
     Route::resource('beers', 'BeerController');
     Route::resource('dishes', 'DishController');
+    Route::resource('pdf-menus', 'PDFMenuController')->only(['index', 'store', 'destroy']);
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController')->only(['index', 'edit', 'update', 'destroy'])->middleware('superuser');
     Route::resource('registration-code', 'RegistrationCodeController')->only(['create', 'store'])->middleware('superuser');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::resource('contact', 'ContactController')->only(['store']);

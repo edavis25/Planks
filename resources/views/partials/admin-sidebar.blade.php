@@ -20,16 +20,20 @@
                 <b>MENU MANAGEMENT</b>
             </div>
             <div class="sidebar-item bg-gray-light">
-                <i class="fa fa-list-ul pr-2"></i>
+                <i class="fa fa-list-ul pr-2" aria-hidden="true"></i>
                 <a class="sidebar-link" href="{{ route('admin.categories.index') }}">Menu Categories</a>
             </div>
             <div class="sidebar-item bg-gray-light">
-                <i class="fa fa-cutlery pr-2"></i>
+                <i class="fa fa-cutlery pr-2" aria-hidden="true"></i>
                 <a class="sidebar-link" href="{{ route('admin.dishes.index') }}">Dishes</a>
             </div>
             <div class="sidebar-item bg-gray-light">
-                <i class="fa fa-beer pr-2"></i>
+                <i class="fa fa-beer pr-2" aria-hidden="true"></i>
                 <a class="sidebar-link" href="{{ route('admin.beers.index') }}">Beers</a>
+            </div>
+            <div class="sidebar-item bg-gray-light">
+                <i class="fa fa-file-pdf-o pr-2" aria-hidden="true"></i>
+                <a class="sidebar-link" href="{{ route('admin.pdf-menus.index') }}">PDF Menus</a>
             </div>
             <div class="sidebar-item bg-gray" id="special-accordian" data-toggle="collapse" data-target="#special-collapsed">
                 <a class="sidebar-link" href="#">Daily Specials</a>
