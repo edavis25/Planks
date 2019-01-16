@@ -31,6 +31,11 @@
     {{ Form::textarea('details', null, [ 'class' => 'form-control', 'rows' => 3 ] ) }}
 </div>
 
+<div class="form-group">
+    {{ Form::label('type', 'Category Type') }}
+    {{ Form::select('type', [null => 'Select Type', 'food' => 'Food', 'drink' => 'Drink'], $category->type ?? null, ['class' => 'form-control'] ) }}
+</div>
+
 <div class="form-group mt-5">
     <button type="submit" class="btn btn-success mr-3"><i class="fa fa-save"></i> Save Changes</button>
     <button type="reset" class="btn btn-danger"><i class="fa fa-refresh"></i> Restore Defaults</button>
