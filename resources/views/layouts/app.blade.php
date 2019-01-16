@@ -22,27 +22,18 @@
 </head>
 <body>
     <div id="app">
-
-        <!-- Navbar -->
-        @section('navbar')
+        {{-- Nav (for admins only) --}}
+        @auth
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Register</a>
-                        </li>
-                    @else
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
                         <li class="dropdown nav-item">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -50,23 +41,27 @@
 
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
+                                    <a href="/admin" class="dropdown-item">Admin</a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                                <li>
                                     <a href="{{ route('logout') }}" class="dropdown-item"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
                                         Logout
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;" class="dropdown-item form-inline my-2 my-lg-0">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
                             </ul>
                         </li>
-                    @endguest
-                </ul>
-            </div>
-        </nav>
-        @show
+                    </ul>
+                </div>
+            </nav>
+        @endauth
+
+        {{-- Content --}}
         @yield('content')
 
     </div> <!-- /end #app -->
