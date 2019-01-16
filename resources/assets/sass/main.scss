@@ -1,7 +1,12 @@
+@import "helpers/fonts";
 @import "helpers/variables";
 @import "helpers/mixins";
 @import "helpers/helpers";
-@import "layout/navigation";
-@import "layout/admin";
+
 @import "components/pagination";
 @import "components/buttons";
+
+@import "layout/navigation";
+@import "layout/admin";
+
+@import "pages/home";
