@@ -64,6 +64,11 @@
         {{-- Content --}}
         @yield('content')
 
+        <footer class="container mb-3 text-center">
+            <hr>
+            Planks Bier Garten &bull; 888 S. High St &bull; Columbus, OH 43201 &bull; 614-443-4570
+        </footer>
+
     </div> <!-- /end #app -->
 
     <!-- jQuery 3.2.1 -->
