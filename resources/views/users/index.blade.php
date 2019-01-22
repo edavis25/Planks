@@ -15,22 +15,14 @@
 
     <!-- Search bar -->
     <div class="row-fluid my-3">
-
         {!! Form::open([ 'route' => 'admin.users.index', 'method' => 'GET' ]) !!}
-
             <div class="input-group mb-3">
-
                 {{ Form::text( 'search', Request::input('search'), ['placeholder' => 'Search users by name...', 'class' => 'form-control'] ) }}
-
                 <div class="input-group-append">
-                    <button type="submit" class="btn btn-outline-primary">
-                            <i class="fa fa-search"></i>
-                    </button>
+                    <button type="submit" class="btn btn-outline-primary"><i class="fa fa-search"></i></button>
                 </div>
             </div>
-
         {!! Form::close() !!}
-
     </div>
 
     <!-- Pagination -->
@@ -87,5 +79,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-
+            </table>
+        </div>
+    </div>
 @endsection
