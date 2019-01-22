@@ -232,7 +232,6 @@
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Event Space</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -247,13 +246,13 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="d-block w-100" src="http://via.placeholder.com/640x360" alt="First slide">
+                                        <img class="d-block w-100" src="{{ asset('img/garten-osu.jpg') }}" alt="Photograph of full Bier Garten.">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="http://via.placeholder.com/640x360" alt="Second slide">
+                                        <img class="d-block w-100" src="{{ asset('img/garten-overhead.jpg') }}" alt="Overhead photograph of Bier Garten.">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="d-block w-100" src="http://via.placeholder.com/640x360" alt="Third slide">
+                                        <img class="d-block w-100" src="{{ asset('img/garten-food.jpg') }}" alt="Photograph of party portioned food.">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#garten-carousel" role="button" data-slide="prev">
