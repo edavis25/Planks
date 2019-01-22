@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FlashMessage;
 use App\Http\Requests\DishRequest;
+use App\MenuImage;
+use App\Services\ImageUploadService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Dish;
@@ -112,6 +114,34 @@ class DishController extends Controller
      */
     public function update(DishRequest $request, Dish $dish)
     {
+        if ($request->hasFile('file')) {
+            $storage_path = config('menu_images.storage.food.full_path');
+            $uuid = str_random(12);
+
+            $file = $request->file('file');
+            $image_service = new ImageUploadService($file, "$storage_path/$uuid");
+            if (! $image_service->validImage()) {
+                FlashMessage::danger('Invalid file. Accepts: jpg, jpeg, & png files under 5MB in size');
+                return redirect()->back();
+            }
+
+            /** Force delete any existing images to trigger observer for removal from storage */
+            $dish->image()->delete();
+
+            $image = $image_service->processImage();
+
+            MenuImage::firstOrCreate([
+                'imageable_id'   => $dish->id,
+                'imageable_type' => get_class($dish),
+                'filename'       => $file->getClientOriginalName(),
+                'filepath'       => $storage_path,
+                'filetype'       => $file->getClientMimeType(),
+                'size'           => $file->getClientSize(),
+                'disk'           => config('filesystems.default'),
+                'uuid'           => $uuid
+            ]);
+        }
+
         $dish->update($request->all());
 
         FlashMessage::success($dish->name . ' has been updated.');
