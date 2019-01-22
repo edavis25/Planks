@@ -27,8 +27,9 @@ class ContactController extends Controller
             return redirect()->route('home', '#contact-form');
         }
         catch (\Exception $e) {
-            FlashMessage::danger('Oops! Something went wrong sending your message. Please call us at <strong>614-443-4570</strong>');
-            return redirect()->back();
+            dd($e);
+            FlashMessage::danger('Oops! Something went wrong sending your message. Please call us at 614-443-4570');
+            return redirect()->route('home', '#contact-form');
         }
     }
 }
