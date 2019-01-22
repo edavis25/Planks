@@ -21,6 +21,7 @@
     justify-content: center;
     align-items: center;
     background-color: #eee;
+    padding: 40px 0 30px 0;
   }
 
   &__hero-img {
@@ -39,7 +40,7 @@
     background-color: #139a43;
     padding: 10px 0;
     text-align: center;
-    //font-size: 2rem;
+    font-size: 1.5rem;
     color: #fff;
   }
 
@@ -49,8 +50,9 @@
 
   &__card-img-wrapper {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    //margin-left: auto;
+    //margin-right: auto;
+    margin: 0 auto 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,15 +101,16 @@
 
   &__icon {
     text-align: center;
+
+    @media screen and (max-width: $bootstrap-sm) {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
     i {
       color: $green-new;
     }
-    //fill: $green-dark;
-    //text-align: center;
-    //
-    //svg {
-    //  max-height: 150px;
-    //}
   }
 
   &__icon-heading {
