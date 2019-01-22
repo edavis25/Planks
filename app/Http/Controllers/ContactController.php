@@ -17,13 +17,18 @@ class ContactController extends Controller
      */
     public function store(ContactSubmissionRequest $request)
     {
-        $emails = explode(',', env('ADMIN_EMAILS'));
-        foreach($emails as $email) {
-            Mail::to($email)->send(new ContactFormSubmissionToAdmin($request->name, $request->phone, $request->date, $request->description));
+        try {
+            $emails = explode(',', env('ADMIN_EMAILS'));
+            foreach($emails as $email) {
+                Mail::to($email)->send(new ContactFormSubmissionToAdmin($request->name, $request->phone, $request->date, $request->description));
+            }
+
+            FlashMessage::success('Your message has been submitted! We will contact you about your event in the next 48-72 hours.');
+            return redirect()->route('home', '#contact-form');
         }
-
-        FlashMessage::success('Your message has been submitted! We will contact you about your event in the next 48-72 hours.');
-        return redirect()->route('home', '#contact-form');
+        catch (\Exception $e) {
+            FlashMessage::danger('Oops! Something went wrong sending your message. Please call us at <strong>614-443-4570</strong>');
+            return redirect()->back();
+        }
     }
-
 }
