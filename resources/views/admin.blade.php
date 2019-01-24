@@ -21,6 +21,10 @@
                 <h3>Beer</h3>
                 <p>Edit and create new beers.</p>
                 <a href="{{ route('admin.beers.index') }}" class="text-primary">Manage Beers</a>
+                <hr>
+                <h3>PDF Menus</h3>
+                <p>Upload new PFD menus.</p>
+                <a href="{{ route('admin.pdf-menus.index') }}" class="text-primary">Manage PDF Menus</a>
             </div>
         </div>
     </div>

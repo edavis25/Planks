@@ -60,12 +60,10 @@ class PDFMenuController extends Controller
         $pdf = PDFMenu::findOrFail($id);
         if (Storage::has($pdf->filepath)) {
             Storage::delete($pdf->filepath);
-            $pdf->delete();
-            FlashMessage::success($pdf->filename . ' deleted!');
         }
-        else {
-            FlashMessage::danger($pdf->filename. ' was not found on disk. Try uploading a new file.');
-        }
+
+        $pdf->delete();
+        FlashMessage::success($pdf->filename . ' deleted!');
 
         return redirect()->back();
     }
