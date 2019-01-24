@@ -28,7 +28,7 @@ class BeerController extends Controller
             $beers->where('name', 'like', "%{$request->input('search')}%");
         }
 
-        $beers = $beers->paginate(10);
+        $beers = $beers->paginate(25);
         return view('beers.index', compact('beers'));
     }
 

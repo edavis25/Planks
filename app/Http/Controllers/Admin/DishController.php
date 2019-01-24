@@ -32,7 +32,7 @@ class DishController extends Controller
 
         $dishes->filterByCategory($request->get('category') ?? null);
 
-        $dishes     = $dishes->paginate(5);
+        $dishes     = $dishes->paginate(25);
         $categories = [null => 'All'] + Category::all()->pluck('name', 'id')->toArray();
 
         return view('dishes.index', compact('dishes', 'categories'));
