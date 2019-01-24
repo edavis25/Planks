@@ -110,7 +110,7 @@ class ImageUploadService
         $save_path = $this->storage_path;
 
         if (! file_exists($save_path)) {
-            mkdir($save_path, 0664, true);
+            mkdir($save_path, 0775, true);
         }
 
         if (substr($save_path, -1) != DIRECTORY_SEPARATOR) {
