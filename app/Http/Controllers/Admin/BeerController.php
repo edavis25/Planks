@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\FlashMessage;
 use App\Http\Requests\BeerRequest;
+use App\MenuImage;
+use App\Services\ImageUploadService;
 use Illuminate\Http\Request;
 use App\Beer;
 use App\Category;
@@ -101,6 +103,34 @@ class BeerController extends Controller
      */
     public function update(BeerRequest $request, Beer $beer)
     {
+        if ($request->hasFile('file')) {
+            $storage_path = config('menu_images.storage.beer.full_path');
+            $uuid = str_random(12);
+
+            $file = $request->file('file');
+            $image_service = new ImageUploadService($file, "$storage_path/$uuid");
+            if (! $image_service->validImage()) {
+                FlashMessage::danger('Invalid file. Accepts: jpg, jpeg, & png files under 5MB in size');
+                return redirect()->back();
+            }
+
+            /** Force delete any existing images to trigger observer for removal from storage */
+            $beer->image()->delete();
+
+            $image_service->processImage();
+
+            MenuImage::firstOrCreate([
+                'imageable_id'   => $beer->id,
+                'imageable_type' => get_class($beer),
+                'filename'       => $file->getClientOriginalName(),
+                'filepath'       => $storage_path,
+                'filetype'       => $file->getClientMimeType(),
+                'size'           => $file->getClientSize(),
+                'disk'           => config('filesystems.default'),
+                'uuid'           => $uuid
+            ]);
+        }
+
         try {
             $beer->update($request->all());
             FlashMessage::success($beer->name . ' has been updated.');

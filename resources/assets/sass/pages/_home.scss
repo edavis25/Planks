@@ -160,4 +160,8 @@
       color: darken($green-new, 5%);
     }
   }
+
+  &__menu-thumbnail {
+    max-width: 75px;
+  }
 }

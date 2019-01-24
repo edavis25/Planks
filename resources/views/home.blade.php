@@ -108,7 +108,7 @@
                                                         </div>
                                                         @if ($dish->thumbnailUrl())
                                                             <div class="col-md-3">
-                                                                <img class="pull-right img img-responsive" src="{{ $dish->thumbnailUrl() }}" style="max-width: 100px;" />
+                                                                <img class="home__menu-thumbnail pull-right img img-responsive" src="{{ $dish->thumbnailUrl() }}" />
                                                             </div>
                                                         @endif
                                                     </div>
@@ -145,13 +145,29 @@
                                         <i v-else class="fa fa-plus"></i>
                                     </h5>
                                 </div>
+
                                 <div id="{{ $category->name }}" class="collapse">
                                     <div class="card-body">
-                                        @foreach($category->beers as $beer)
+                                        @if ($category->details)
+                                            <div class="p-2 mb-3 text-secondary">
+                                                {!! $category->details !!}
+                                            </div>
+                                        @endif
+
+                                        @foreach($category->beers ?? [] as $beer)
                                             <div class="card bg-light mb-4">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">{{ $beer->name }}</h5>
-                                                    <p class="card-text">{{ $beer->description }}</p>
+                                                    <div class="row">
+                                                        <div class="col-md-9">
+                                                            <h5 class="card-title">{{ $beer->name }}</h5>
+                                                            <p class="card-text">{{ $beer->description }}</p>
+                                                        </div>
+                                                        @if ($beer->thumbnailUrl())
+                                                            <div class="col-md-3">
+                                                                <img class="home__menu-thumbnail pull-right img img-responsive" src="{{ $beer->thumbnailUrl() }}" />
+                                                            </div>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         @endforeach

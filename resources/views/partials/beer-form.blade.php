@@ -3,9 +3,9 @@
   -- or create a blank form if none given (ie. creating new)
 --}}
 @if (isset($beer))
-    {!! Form::model($beer, [ 'route' => ['admin.beers.update', $beer], 'method' => 'PUT' ] ) !!}
+    {!! Form::model($beer, ['route' => ['admin.beers.update', $beer], 'method' => 'PUT', 'files' => true] ) !!}
 @else
-    {!! Form::open([ 'route' => 'admin.beers.store', 'method' => 'POST' ]) !!}
+    {!! Form::open(['route' => 'admin.beers.store', 'method' => 'POST', 'files' => true]) !!}
 @endif
 
 {{-- Display any validation errors --}}
@@ -51,6 +51,26 @@
 <div class="form-group mt-5">
     <button type="submit" class="btn btn-success mr-3"><i class="fa fa-save"></i> Save Changes</button>
     <button type="reset" class="btn btn-danger"><i class="fa fa-refresh"></i> Restore Defaults</button>
+    <button class="btn btn-warning float-md-right d-none d-md-block" type="button" data-toggle="collapse" data-target="#upload-file" aria-expanded="false" aria-controls="upload-file">
+        <i class="fa fa-image"></i> Image Upload
+    </button>
+</div>
+
+<div class="collapse" id="upload-file">
+    <div class="alert alert-warning">
+        <h3><i class="fa fa-warning"></i> This is still an experimental feature</h3>
+        <br>
+        @if ($beer->image)
+            <div class="form-group">
+                {{ Form::label('', 'Current Image') }}<br>
+                <img class="img img-fluid" src="{{ $beer->thumbnailUrl() }}" style="max-width: 80px;" />
+            </div>
+        @endif
+        <div class="form-group">
+            {{ Form::label('file', 'New Image') }}<br>
+            {{ Form::file('file') }}
+        </div>
+    </div>
 </div>
 
 {!! Form::close() !!}
