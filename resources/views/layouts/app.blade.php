@@ -38,23 +38,25 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                    <a href="/admin" class="dropdown-item">Admin</a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li>
-                                    <a href="{{ route('logout') }}" class="dropdown-item"
-                                       onclick="event.preventDefault();
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <h6 class="dropdown-header">{{ Auth::user()->is_super_user ? 'Super User' : 'Admin' }}</h6>
+                                <a class="dropdown-item" href="{{ route('admin.categories.index') }}">Categories</a>
+                                <a class="dropdown-item" href="{{ route('admin.dishes.index') }}">Food</a>
+                                <a class="dropdown-item" href="{{ route('admin.beers.index') }}">Beer</a>
+                                <a class="dropdown-item" href="{{ route('admin.pdf-menus.index') }}">PDF Menus</a>
+                                @if (Auth::user() && Auth::user()->is_super_user)
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Users</a>
+                                @endif
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ route('logout') }}" class="dropdown-item"
+                                   onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;" class="dropdown-item form-inline my-2 my-lg-0">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
+                                    Logout
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;" class="dropdown-item form-inline my-2 my-lg-0">
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </div>
