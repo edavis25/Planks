@@ -60,7 +60,7 @@
     <div class="alert alert-warning">
         <h3><i class="fa fa-warning"></i> This is still an experimental feature</h3>
         <br>
-        @if ($dish->image)
+        @if ($dish->image ?? false)
             <div class="form-group">
                 {{ Form::label('', 'Current Image') }}<br>
                 <img class="img img-fluid" src="{{ $dish->thumbnailUrl() }}" style="max-width: 80px;" />
