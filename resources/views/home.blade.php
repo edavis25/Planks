@@ -102,9 +102,9 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <h5 class="card-title">{{ $dish->name }}</h5>
-                                                            <p class="card-text">{{ $dish->description }}</p>
-                                                            <h6 class="card-subtitle mb-2 text-muted">{{ $dish->price }}</h6>
+                                                            <h5 class="card-title">{!! $dish->name !!}</h5>
+                                                            <p class="card-text">{!! $dish->description !!}</p>
+                                                            <h6 class="card-subtitle mb-2 text-muted">{!! $dish->price !!}</h6>
                                                         </div>
                                                         @if ($dish->thumbnailUrl())
                                                             <div class="col-md-3">
@@ -140,7 +140,7 @@
                             <div class="card home__menu-card">
                                 <div class="card-header cursor-pointer" data-toggle="collapse" data-target="#{{ $category->name }}" aria-expanded="true" @click="toggleActiveFoodCategory('{{ $category->name }}')">
                                     <h5 class="home__menu-heading mb-0">
-                                        {{ $category->name }}
+                                        {!! $category->name !!}
                                         <i v-if="this.foodCategoryIsActive('{{ $category->name }}')" class="fa fa-minus"></i>
                                         <i v-else class="fa fa-plus"></i>
                                     </h5>
@@ -159,8 +159,8 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-md-9">
-                                                            <h5 class="card-title">{{ $beer->name }}</h5>
-                                                            <p class="card-text">{{ $beer->description }}</p>
+                                                            <h5 class="card-title">{!! $beer->name !!}</h5>
+                                                            <p class="card-text">{!! $beer->description !!}</p>
                                                         </div>
                                                         @if ($beer->thumbnailUrl())
                                                             <div class="col-md-3">
