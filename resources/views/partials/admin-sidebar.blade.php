@@ -47,7 +47,7 @@
                 </div>
                 <div class="sidebar-item bg-gray-light">
                     <i class="fa fa-edit pr-2"></i>
-                    <a class="sidebar-link" href="#">Manage</a>
+                    <a class="sidebar-link" href="{{ route('admin.specials.index')   }}">Manage</a>
                 </div>
             </div>
 

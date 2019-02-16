@@ -30,6 +30,7 @@ Route::group([
     Route::resource('dishes', 'DishController');
     Route::resource('pdf-menus', 'PDFMenuController')->only(['index', 'store', 'destroy']);
     Route::resource('categories', 'CategoryController');
+    Route::resource('specials', 'SpecialController');
     Route::resource('users', 'UserController')->only(['index', 'edit', 'update', 'destroy'])->middleware('superuser');
     Route::resource('registration-code', 'RegistrationCodeController')->only(['create', 'store'])->middleware('superuser');
 });
