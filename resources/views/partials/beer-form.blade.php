@@ -23,17 +23,17 @@
 {{-- Display the actual form fields --}}
 <div class="form-group">
     {{ Form::label('name', 'Name') }}
-    {{ Form::text('name', null, [ 'required' => 'required', 'class' => 'form-control' ] ) }}
+    {{ Form::text('name', null, ['required' => 'required', 'class' => 'form-control'] ) }}
 </div>
 
 <div class="form-group">
     {{ Form::label('description', 'Description') }}
-    {{ Form::textarea('description', null, [ 'required' => 'required', 'class' => 'form-control', 'rows' => 5 ] ) }}
+    {{ Form::textarea('description', null, ['required' => 'required', 'class' => 'form-control', 'rows' => 5] ) }}
 </div>
 
 <div class="form-group">
     {{ Form::label('price', 'Price') }}
-    {{ Form::text('price', null, array('required' => 'required', 'class' => 'form-control') ) }}
+    {{ Form::text('price', null, ['class' => 'form-control'] ) }}
     <small class='d-block'>
         <i class="fa fa-info-circle"></i>
         <em>

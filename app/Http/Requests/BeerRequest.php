@@ -27,7 +27,6 @@ class BeerRequest extends FormRequest
         return [
             'name'        => 'required',
             'description' => 'required',
-            'price'       => 'required',
             'category_id' => 'required|numeric'
         ];
     }
