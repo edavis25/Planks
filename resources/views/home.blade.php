@@ -21,7 +21,7 @@
                         <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
                         <div class="home__icon-heading">Hours</div>
                         <div class="home__icon-content">
-                            <strong>Mon</strong> 4pm-11pm<br>
+                            <strong>Monday:</strong> 4pm-11pm<br>
                             <strong>Tue-Thu:</strong> 11am-11pm<br>
                             <strong>Fri & Sat:</strong> 11am-11pm*<br>
                             <em class="text-muted">*bar open until 2am</em><br>
@@ -34,12 +34,13 @@
                         <i class="fa fa-beer fa-5x" aria-hidden="true"></i>
                         <div class="home__icon-heading">Happy Hour</div>
                         <div class="home__icon-content">
-                            Mon-Fri: 4pm-7pm<br>
-                            Sunday: All Day!
+                            <strong>Monday:</strong> 4pm-6pm<br>
+                            <strong>Tue-Fri:</strong> 3pm-6pm<br>
+                            <strong>Sunday:</strong> All Day!
                         </div>
                         <div class="home__icon-heading">1/2 Price Pizza</div>
                         <div class="home__icon-content">
-                            Monday: 4pm-11pm*<br>
+                            <strong>Monday:</strong> 4pm-11pm*<br>
                             <em class="home__disclaimer">*dine-in only</em>
                         </div>
                     </div>
