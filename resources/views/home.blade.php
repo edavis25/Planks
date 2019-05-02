@@ -230,7 +230,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label><em class="small">&nbsp;optional</em><br>
-                                <textarea class="form-control" id="description" placeholder="Type of event, number guests, etc. (optional)"></textarea>
+                                <textarea class="form-control" id="description" placeholder="Type of event, number guests, etc. (optional)" name="description"></textarea>
                             </div>
                             <div class="form-group">
                                 @if (session('flash_message'))
