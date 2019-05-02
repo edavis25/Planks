@@ -292,30 +292,30 @@
 
         {{-- Our History --}}
         <section class="home__section">
-            <div class="container col-md-6">
-                <div class="row">
-                    <div class="container">
-                        <h2>Our History</h2>
-                    </div>
+            <div class="container col-md-8">
+                <div class="col-xs-12">
+                    <h2>Our History</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-xl-4">
                         <div class="row">
-                            <div class="container">
+                            <div class="container text-center">
                                 <img class="img img-fluid mx-auto mb-3" src="{{ asset('img/planks-historic.jpg') }}" alt="Historic photograph of Planks Bier Garten" />
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-xl-8">
                         <div class="container">
                             <p>
                                 In 1939, six years after the end of Prohibition, Walter Plank, Sr. saw an opportunity to open a bar and
                                 restaurant in his beloved childhood neighborhood. After experiencing years of success, Walter Plank
                                 entrusted the bar to his two sons who became the second generation of the family to enter the restaurant business.
                                 It was one of those sons, William “Willie” Plank, who dared to expand, and in 1960 purchased a nearby restaurant
-                                and began his own legacy with what is now Planks Bier Garten. We are located in the heart of German Village and
-                                offer a large outdoor patio, space for groups and gatherings, and a place to experience the beauty and history of
-                                one of Columbus’ oldest neighborhoods.
+                                and began his own legacy with what is now Planks Bier Garten.
+                            </p>
+                            <p>
+                                We are located in the heart of German Village and offer a large outdoor patio, space for groups and gatherings,
+                                and a place to experience the beauty and history of one of Columbus’ most historic neighborhoods.
                             </p>
                             <p>
                                 Over 50 years and 3 generations later, we are proud to continue serving our friends and family in the neighborhood we love!
