@@ -13,76 +13,47 @@ class CategorySeeder extends Seeder
     {
         \App\Category::create([
             'name' => 'Appetizers',
+            'type' => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Salads and Soups'
+            'name' => 'Salads and Soups',
+            'type' => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Burgers',
+            'name'    => 'Burgers',
             'details' => 'All burgers are 7 ounces and served with lettuce, tomato, and onion on a brioche bun with your choice of one side.',
+            'type'    => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Sandwiches',
+            'name'    => 'Sandwiches',
             'details' => 'All Sandwiches are served with your choice of one side.',
+            'type'    => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Subs',
+            'name'    => 'Subs',
             'details' => 'All subs are served with your choice of one side.',
+            'type'    => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Entrees',
+            'name'    => 'Entrees',
             'details' => 'All Entrees are served with your choice of two sides.',
+            'type'    => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Sides'
+            'name' => 'Sides',
+            'type' => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Pizza'
+            'name' => 'Pizza',
+            'type' => 'food'
         ]);
         \App\Category::create([
-            'name' => 'Draft Beer'
+            'name' => 'Draft Beer',
+            'type' => 'drink'
         ]);
         \App\Category::create([
-            'name' => 'Bottled Beer'
+            'name' => 'Bottled Beer',
+            'type' => 'drink'
         ]);
-        
-        /* This seeding method throws errors on details insert for some reason...
-        DB::table('categories')->insert([
-            [
-                'name' => 'Appetizers',
-            ],
-            [
-                'name' => 'Salads and Soups'
-            ],
-            [
-                'name' => 'Burgers',
-                //'details' => 'All burgers are 7 ounces and served with lettuce, tomato, and onion on a brioche bun with your choice of one side.',
-            ],
-            [
-                'name' => 'Sandwiches',
-                //'details' => 'All Sandwiches are served with your choice of one side.',
-            ],
-            [
-                'name' => 'Subs',
-                //'details' => 'All subs are served with your choice of one side.',
-            ],
-            [
-                'name' => 'Entrees',
-                //'details' => 'All Entrees are served with your choice of two sides.',
-            ],
-            [
-                'name' => 'Sides'
-            ],
-            [
-                'name' => 'Pizza'
-            ],
-            [
-                'name' => 'Draft Beer'
-            ],
-            [
-                'name' => 'Bottled Beer'
-            ]
-        ]);
-        */
     }
 }
