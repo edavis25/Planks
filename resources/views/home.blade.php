@@ -62,22 +62,22 @@
         <section class="container home__section">
             <div class="row center-content">
                 <div class="col-md-5 center-content">
-                    <div class="home__card-img-wrapper" :class="{ active: this.showingBeer }">
+                    <div class="home__card-img-wrapper" :class="{ active: showingBeer }">
                         <img class="card-img-top" src="{{ asset('img/beer-glass.png') }}" alt="Glass of beer">
-                        <span class="home__card-heading" :class="{ active: this.showingBeer }" @click="showBeer()">Beer</span>
+                        <span class="home__card-heading" :class="{ active: showingBeer }" @click="showBeer()">Beer</span>
                     </div>
                 </div>
 
                 <div class="col-md-5 offset-md-1">
-                    <div class="home__card-img-wrapper" :class="{ active: this.showingFood }">
+                    <div class="home__card-img-wrapper" :class="{ active: showingFood }">
                         <img class="card-img-top" src="{{ asset('img/brats-overhead.jpg') }}" alt="Bratwurst entree">
-                        <span class="home__card-heading" :class="{ active: this.showingFood }" @click="showFood()">Food</span>
+                        <span class="home__card-heading" :class="{ active: showingFood }" @click="showFood()">Food</span>
                     </div>
                 </div>
             </div>
 
             {{-- Food Menu --}}
-            <div v-show="this.showingFood">
+            <div v-show="showingFood">
                 <div class="row">
                     {{-- Food Accordion Menu --}}
                     <div id="food-accordion" class="offset-md-1 col-md-10">
@@ -86,7 +86,7 @@
                                 <div class="card-header cursor-pointer" data-toggle="collapse" data-target="#{{ $category->name }}" aria-expanded="true" @click="toggleActiveFoodCategory('{{ $category->name }}')">
                                     <h5 class="home__menu-heading mb-0">
                                         {{ $category->name }}
-                                        <i v-if="this.foodCategoryIsActive('{{ $category->name }}')" class="fa fa-minus"></i>
+                                        <i v-if="foodCategoryIsActive('{{ $category->name }}')" class="fa fa-minus"></i>
                                         <i v-else class="fa fa-plus"></i>
                                     </h5>
                                 </div>
@@ -134,7 +134,7 @@
             </div>
 
             {{-- Beer Menu --}}
-            <div v-show="this.showingBeer">
+            <div v-show="showingBeer">
                 <div class="row">
                     <div id="beer-accordion" class="offset-md-1 col-md-10">
                         @foreach ($beer_categories as $category)
@@ -142,7 +142,7 @@
                                 <div class="card-header cursor-pointer" data-toggle="collapse" data-target="#{{ $category->name }}" aria-expanded="true" @click="toggleActiveFoodCategory('{{ $category->name }}')">
                                     <h5 class="home__menu-heading mb-0">
                                         {!! $category->name !!}
-                                        <i v-if="this.foodCategoryIsActive('{{ $category->name }}')" class="fa fa-minus"></i>
+                                        <i v-if="foodCategoryIsActive('{{ $category->name }}')" class="fa fa-minus"></i>
                                         <i v-else class="fa fa-plus"></i>
                                     </h5>
                                 </div>
