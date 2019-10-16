@@ -35,4 +35,4 @@ Route::group([
 });
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::resource('contact', 'ContactController')->only(['store']);
+Route::resource('contact', 'ContactController')->only(['store'])->middleware('honeypot');
