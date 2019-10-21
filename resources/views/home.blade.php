@@ -215,6 +215,11 @@
                 <div class="row">
                     <div class="container">
                         <form class="home__contact" action="{{ route('contact.store') }}" method="POST">
+                            <div style="visibility: hidden; height: 0;" aria-hidden="true">
+                                <label for="name_h_p_check"></label>
+                                <input name="name_h_p_check" type="text" id="name_h_p_check" />
+                            </div>
+
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <label for="name">Name*</label><br>
@@ -338,9 +343,6 @@
                 showingBeer: false,
                 showingFood: true,
                 activeFoodCategories: []
-            },
-            created: function() {
-
             },
             methods: {
                 showBeer: function() {
