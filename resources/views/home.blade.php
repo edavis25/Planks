@@ -33,8 +33,8 @@
                                 Until further notice,
                                 <strong>we are planning to offer carry-out and delivery service</strong> for those in the German Village area.
                                 We will update this page with more information once we have had time to discuss how we can
-                                best continue serving our friends and neighbors in a safe manner. Our thoughts and prayers go
-                                out for the health of all our employees, friends, family, and neighbors in these uncertain times.
+                                continue serving our customers in the the safest possible manner. Our thoughts and prayers go out for
+                                the health of all our employees, friends, family, and neighbors in these uncertain times.
                             </p>
                         </div>
                     </div>
