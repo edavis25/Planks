@@ -16,6 +16,31 @@
         <section class="home__section">
             <div class="container">
                 <div class="row">
+
+                    <div class="card border-warning mb-5 mx-auto">
+                        <div class="card-body text-secondary">
+                            <h5 class="card-title">
+                                <i class="fa fa-heartbeat text-muted" aria-hidden="true"></i>
+                                Coronavirus Updates
+                            </h5>
+                            <p class="card-text">
+                                &bull; (3/16/2020) Following
+                                <a href="https://governor.ohio.gov/wps/portal/gov/governor/media/news-and-media/dewine-orders-ohio-bars-restaurants-to-close" target="_blank">Governor DeWine's recent announcement</a>, we will be doing our part
+                                to protect our friends and neighbors by slowing the spread of COVID-19 by remaining
+                                <em>closed to dine-in and bar customers</em> for the indefinite future.
+                            </p>
+                            <p>
+                                Until further notice,
+                                <strong>we are planning to offer carry-out and delivery service</strong> for those in the German Village area.
+                                We will update this page with more information once we have had time to discuss how we can
+                                best continue serving our friends and neighbors in a safe manner. Our thoughts and prayers go
+                                out for the health of all our employees, friends, family, and neighbors in these uncertain times.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
                     <div class="col-md-4 home__icon">
                         {{--{!! file_get_contents(base_path('/public/img/icons/circular-clock.svg')) !!}--}}
                         <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
