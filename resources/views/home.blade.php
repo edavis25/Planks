@@ -24,7 +24,23 @@
                                 Coronavirus Updates
                             </h5>
                             <p class="card-text">
-                                &bull; (3/16/2020) Following
+                                &bull; (3/17/2020) Until further notice, we will be <strong>remaining open for carry-outs
+                                and deliveries</strong> with a streamlined menu and hours. With the health of our employees
+                                and customers being our top priority, we are more than happy to accommodate any special
+                                requests such as bringing your order to your car or any other safety measures to ensure
+                                responsible social distancing.
+                            </p>
+                            <p>Carry-out/Delivery Hours</p>
+                            <ul>
+                                <li>Monday-Thursday: 11am-2pm / 5pm-9pm</li>
+                                <li>Fri/Sat/Sun: 11am-9pm</li>
+                            </ul>
+                            <img src="{{ asset('img/temp-menu.jpg') }}" class="img img-fluid" />
+                            <br>
+                            <hr>
+                            <br>
+                            <p class="card-text">
+                                &bull; (3/16/2020) For the immediate future we are planning to offer carry-out and delivery services
                                 <a href="https://governor.ohio.gov/wps/portal/gov/governor/media/news-and-media/dewine-orders-ohio-bars-restaurants-to-close" target="_blank">Governor DeWine's recent announcement</a>, we will be doing our part
                                 to protect our friends and neighbors by slowing the spread of COVID-19 by remaining
                                 <em>closed to dine-in and bar customers</em> for the indefinite future.
@@ -38,9 +54,10 @@
                             </p>
                         </div>
                     </div>
-
                 </div>
-                <div class="row">
+
+                {{-- TODO: Remove inline styles --}}
+                <div class="row" style="opacity: 0.1;">
                     <div class="col-md-4 home__icon">
                         {{--{!! file_get_contents(base_path('/public/img/icons/circular-clock.svg')) !!}--}}
                         <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
@@ -84,7 +101,9 @@
         </section>
 
         {{-- Beer/Food Menu Images --}}
-        <section class="container home__section">
+
+        {{-- TODO: Remove coronavrius blockers --}}
+        <section class="container home__section" @click.prevent style="opacity: 0.1;">
             <div class="row center-content">
                 <div class="col-md-5 center-content">
                     <div class="home__card-img-wrapper" :class="{ active: showingBeer }">
@@ -102,7 +121,9 @@
             </div>
 
             {{-- Food Menu --}}
-            <div v-show="showingFood">
+
+            {{-- TODO: Remove coronavirus blocker! --}}
+            <div v-show="showingFood" @click.prevent>
                 <div class="row">
                     {{-- Food Accordion Menu --}}
                     <div id="food-accordion" class="offset-md-1 col-md-10">
@@ -159,7 +180,9 @@
             </div>
 
             {{-- Beer Menu --}}
-            <div v-show="showingBeer">
+
+            {{-- TODO: Remove coronavirus blocker! --}}
+            <div v-show="showingBeer" @click.prevent>
                 <div class="row">
                     <div id="beer-accordion" class="offset-md-1 col-md-10">
                         @foreach ($beer_categories as $category)
