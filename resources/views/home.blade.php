@@ -24,34 +24,20 @@
                                 Coronavirus Updates
                             </h5>
                             <p class="card-text">
-                                &bull; (3/17/2020) Until further notice, we will be <strong>remaining open for carry-outs
-                                and deliveries</strong> with a streamlined menu and hours. With the health of our employees
-                                and customers being our top priority, we are more than happy to accommodate any special
-                                requests such as bringing your order to your car or any other safety measures to ensure
-                                responsible social distancing.
+                                &bull; <strong>(5/15/2020)</strong> Following guidelines from the State of Ohio, we are happy to announce
+                                that we will be opening up our outdoor patio for limited dine-in service! At this time, seating
+                                will be available only on our back patio and front sidewalk with a limited capacity to
+                                ensure safe social distancing. Because of this limited capacity, we will be serving pizza
+                                and a limited selection our most popular dishes. We also recommend calling ahead before
+                                your visit to check our availability.
                             </p>
-                            <p>Carry-out/Delivery Hours</p>
-                            <ul>
-                                <li>Monday-Thursday: 11am-2pm / 5pm-9pm</li>
-                                <li>Fri/Sat/Sun: 11am-9pm</li>
-                            </ul>
-                            <img src="{{ asset('img/temp-menu.jpg') }}" class="img img-fluid" />
-                            <br>
-                            <hr>
-                            <br>
-                            <p class="card-text">
-                                &bull; (3/16/2020) For the immediate future we are planning to offer carry-out and delivery services
-                                <a href="https://governor.ohio.gov/wps/portal/gov/governor/media/news-and-media/dewine-orders-ohio-bars-restaurants-to-close" target="_blank">Governor DeWine's recent announcement</a>, we will be doing our part
-                                to protect our friends and neighbors by slowing the spread of COVID-19 by remaining
-                                <em>closed to dine-in and bar customers</em> for the indefinite future.
-                            </p>
-                            <p>
-                                Until further notice,
-                                <strong>we are planning to offer carry-out and delivery service</strong> for those in the German Village area.
-                                We will update this page with more information once we have had time to discuss how we can
-                                continue serving our customers in the the safest possible manner. Our thoughts and prayers go out for
-                                the health of all our employees, friends, family, and neighbors in these uncertain times.
-                            </p>
+                            @php $pizza = $food_categories->where('name', 'Pizza')->first(); @endphp
+                            <div class="mx-auto" style="max-width: 750px;">
+                                <h3>Pizzas</h3>
+                                {!! $pizza->details !!}
+                            </div>
+                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px;"/>
+                            <p class="text-white text-right" style="margin: 0;">Hi Jackie <3</p>
                         </div>
                     </div>
                 </div>
