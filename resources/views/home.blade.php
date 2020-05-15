@@ -31,10 +31,12 @@
                                 and a limited selection our most popular dishes. We also recommend calling ahead before
                                 your visit to check our availability.
                             </p>
-                            @php $pizza = $food_categories->where('name', 'Pizza')->first(); @endphp
+                            {{-- This is super hacky and won't work across environments because that field is dynamic.
+                            it is called Planks Pizza on prod so thats what we need for this hotfix, else it'll blow up! --}}
+                            @php $pizza = $food_categories->where('name', 'Planks Pizza')->first(); @endphp
                             <div class="mx-auto" style="max-width: 750px;">
                                 <h3>Pizzas</h3>
-                                {!! $pizza->details !!}
+                                {!! $pizza->details ?? '' !!}
                             </div>
                             <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px;"/>
                             <p class="text-white text-right" style="margin: 0;">Hi Jackie <3</p>
