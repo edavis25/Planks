@@ -24,21 +24,28 @@
                                 Coronavirus Updates
                             </h5>
                             <p class="card-text">
-                                &bull; <strong>(5/15/2020)</strong> Following guidelines from the State of Ohio, we are happy to announce
-                                that we will be opening up our outdoor patio for limited dine-in service! At this time, seating
-                                will be available only on our back patio and front sidewalk with a limited capacity to
-                                ensure safe social distancing. Because of this limited capacity, we will be serving pizza
-                                and a limited selection our most popular dishes. We also recommend calling ahead before
-                                your visit to check our availability.
+                                &bull; <strong>(5/21/2020)</strong> We are happy to announce that we will be <strong>re-opening
+                                Thursday, May 21st!</strong> While we are incredibly excited to see all of our friends and neighbors
+                                again, we will be operating at a reduced capacity and limited hours while adhering to a new set of
+                                guidelines following our consultations with the Columbus health department:
                             </p>
-                            {{-- This is super hacky and won't work across environments because that field is dynamic.
-                            it is called Planks Pizza on prod so thats what we need for this hotfix, else it'll blow up! --}}
-                            @php $pizza = $food_categories->where('name', 'Planks Pizza')->first(); @endphp
-                            <div class="mx-auto" style="max-width: 750px;">
-                                <h3>Pizzas</h3>
-                                {!! $pizza->details ?? '' !!}
-                            </div>
-                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px;"/>
+                            <ul>
+                                <li>All tables must remain 6 feet apart from one another.</li>
+                                <li>No single group can be larger than 10 people.</li>
+                                <li>All customers must enter through the parking lot entrance and be seated by our new hostess!</li>
+                                <li>All food & drinks must be ordered and consumed while sitting in your seat.</li>
+                                <li>Movement throughout the restaurant is prohibited with the exception of restroom use.</li>
+                                <li>All customers are encouraged to wear masks whenever they are not eating or drinking!</li>
+                            </ul>
+                            <p>
+                                <strong>Hours:</strong><br>
+                                Mon-Thu: 11am-10pm<br>
+                                Fri-Sat: 11am-11pm<br>
+                                Sunday: 12pm-9pm
+                            </p>
+                            <hr>
+                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px;"/><br>
+                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/pizza_menu.jpg') }}" style="max-width: 750px;" /><br>
                             <p class="text-white text-right" style="margin: 0;">Hi Jackie <3</p>
                         </div>
                     </div>
