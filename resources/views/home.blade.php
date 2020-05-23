@@ -44,8 +44,8 @@
                                 Sunday: 12pm-9pm
                             </p>
                             <hr>
-                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px;"/><br>
-                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/pizza_menu.jpg') }}" style="max-width: 750px;" /><br>
+                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px; width: 100%;"/><br>
+                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/pizza_menu.jpg') }}" style="max-width: 750px; width: 100%;" /><br>
                             <p class="text-white text-right" style="margin: 0;">Hi Jackie <3</p>
                         </div>
                     </div>
