@@ -51,8 +51,9 @@
                     </div>
                 </div>
 
-                {{-- TODO: Remove inline styles --}}
-                <div class="row" style="opacity: 0.1;">
+                {{-- TODO: Remove coronavrius blockers/inline styles--}}
+
+                <div class="row" style="display: none;">
                     <div class="col-md-4 home__icon">
                         {{--{!! file_get_contents(base_path('/public/img/icons/circular-clock.svg')) !!}--}}
                         <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
@@ -97,8 +98,9 @@
 
         {{-- Beer/Food Menu Images --}}
 
-        {{-- TODO: Remove coronavrius blockers --}}
-        <section class="container home__section" @click.prevent style="opacity: 0.1;">
+        {{-- TODO: Remove coronavrius blockers/inline styles--}}
+
+        <section class="container home__section" @click.prevent style="opacity: 0.05;">
             <div class="row center-content">
                 <div class="col-md-5 center-content">
                     <div class="home__card-img-wrapper" :class="{ active: showingBeer }">
@@ -117,7 +119,8 @@
 
             {{-- Food Menu --}}
 
-            {{-- TODO: Remove coronavirus blocker! --}}
+            {{-- TODO: Remove coronavrius blockers/inline styles--}}
+
             <div v-show="showingFood" @click.prevent>
                 <div class="row">
                     {{-- Food Accordion Menu --}}
@@ -177,6 +180,7 @@
             {{-- Beer Menu --}}
 
             {{-- TODO: Remove coronavirus blocker! --}}
+
             <div v-show="showingBeer" @click.prevent>
                 <div class="row">
                     <div id="beer-accordion" class="offset-md-1 col-md-10">
@@ -234,7 +238,10 @@
         </section>
 
         {{-- Contact Form --}}
-        <section class="home__section home__section--grey" id="contact-form">
+
+        {{-- TODO: Remove coronavrius blockers/inline styles--}}
+
+        <section class="home__section home__section--grey" id="contact-form" style="opacity: 0.05;">
             <div class="container col-md-6">
                 <div class="row">
                     <div class="container">
