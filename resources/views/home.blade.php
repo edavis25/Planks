@@ -24,83 +24,84 @@
                                 Coronavirus Updates
                             </h5>
                             <p class="card-text">
-                                &bull; <strong>(5/21/2020)</strong> We are happy to announce that we will be <strong>re-opening
-                                Thursday, May 21st!</strong> While we are incredibly excited to see all of our friends and neighbors
-                                again, we will be operating at a reduced capacity and limited hours while adhering to a new set of
-                                guidelines following our consultations with the Columbus health department:
+                                Until further notice, all customers are required to the adhere to the following
+                                guidelines imposed by the State of Ohio:
                             </p>
                             <ul>
-                                <li>All tables must remain 6 feet apart from one another.</li>
+                                <li>All customers are required to wear masks unless seated at a table.</li>
                                 <li>No single group can be larger than 10 people.</li>
-                                <li>All customers must enter through the parking lot entrance and be seated by our new hostess!</li>
                                 <li>All food & drinks must be ordered and consumed while sitting in your seat.</li>
+                                <li>All tables must remain 6 feet apart from one another.</li>
                                 <li>Movement throughout the restaurant is prohibited with the exception of restroom use.</li>
-                                <li>All customers are encouraged to wear masks whenever they are not eating or drinking!</li>
                             </ul>
-                            <p>
-                                <strong>Hours:</strong><br>
-                                Mon-Thu: 11am-10pm<br>
-                                Fri-Sat: 11am-11pm<br>
-                                Sunday: 12pm-9pm
-                            </p>
-                            <hr>
-                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/coronavirus_menu.jpg') }}" style="max-width: 750px; width: 100%;"/><br>
-                            <img class="img img-fluid d-block mx-auto" src="{{ asset('img/pizza_menu.jpg') }}" style="max-width: 750px; width: 100%;" /><br>
-                            <p class="text-white text-right" style="margin: 0;">Hi Jackie <3</p>
+                            <p class="text-white text-right" style="margin: 0; position: absolute;">Hi Jackie <3</p>
                         </div>
                     </div>
                 </div>
 
                 {{-- TODO: Remove coronavrius blockers/inline styles--}}
 
-                <div class="row" style="display: none;">
+                <div class="row">
                     <div class="col-md-4 home__icon">
                         {{--{!! file_get_contents(base_path('/public/img/icons/circular-clock.svg')) !!}--}}
                         <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
                         <div class="home__icon-heading">Hours</div>
                         <div class="home__icon-content">
-                            <strong>Monday:</strong> 4pm-11pm<br>
-                            <strong>Tue-Thu:</strong> 11am-11pm<br>
-                            <strong>Fri & Sat:</strong> 11am-11pm*<br>
-                            <em class="text-muted">*bar open until 2am</em><br>
-                            <strong>Sun:</strong> 12pm-9pm
+                            {{-- coronavirus hours --}}
+                            <strong>Mon-Sat:</strong> 11am-10pm<br>
+                            <strong>Sunday:</strong> 12pm-9pm
+
+                            {{-- normal hours--}}
+{{--                            <strong>Monday:</strong> 4pm-11pm<br>--}}
+{{--                            <strong>Tue-Thu:</strong> 11am-11pm<br>--}}
+{{--                            <strong>Fri & Sat:</strong> 11am-11pm*<br>--}}
+{{--                            <em class="text-muted">*bar open until 2am</em><br>--}}
+{{--                            <strong>Sun:</strong> 12pm-9pm--}}
                         </div>
                     </div>
 
-                    <div class="col-md-4 home__icon">
-                        {{--{!! file_get_contents(base_path('/public/img/icons/beer-1.svg')) !!}--}}
-                        <i class="fa fa-beer fa-5x" aria-hidden="true"></i>
-                        <div class="home__icon-heading">Happy Hour</div>
-                        <div class="home__icon-content">
-                            <strong>Monday:</strong> 4pm-6pm<br>
-                            <strong>Tue-Fri:</strong> 3pm-6pm<br>
-                            <strong>Sunday:</strong> All Day!
-                        </div>
-                        <div class="home__icon-heading">1/2 Price Pizza</div>
-                        <div class="home__icon-content">
-                            <strong>Monday:</strong> 4pm-11pm*<br>
-                            <em class="home__disclaimer">*dine-in only</em>
-                        </div>
-                    </div>
+{{--                    <div class="col-md-4 home__icon">--}}
+{{--                        {!! file_get_contents(base_path('/public/img/icons/beer-1.svg')) !!}--}}
+{{--                        <i class="fa fa-beer fa-5x" aria-hidden="true"></i>--}}
+{{--                        <div class="home__icon-heading">Happy Hour</div>--}}
+{{--                        <div class="home__icon-content">--}}
+{{--                            <strong>Monday:</strong> 4pm-6pm<br>--}}
+{{--                            <strong>Tue-Fri:</strong> 3pm-6pm<br>--}}
+{{--                            <strong>Sunday:</strong> All Day!--}}
+{{--                        </div>--}}
+{{--                        <div class="home__icon-heading">1/2 Price Pizza</div>--}}
+{{--                        <div class="home__icon-content">--}}
+{{--                            <strong>Monday:</strong> 4pm-11pm*<br>--}}
+{{--                            <em class="home__disclaimer">*dine-in only</em>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="col-md-4 home__icon">
                         {{--{!! file_get_contents(base_path('/public/img/icons/pizza-slice.svg')) !!}--}}
                         <i class="fa fa-mobile fa-5x" aria-hidden="true"></i>
                         <div class="home__icon-heading">Carry Out</div>
                         <div class="home__icon-content">
-                            All menu items available for carry out during kitchen hours.
+                            Pickup available during normal kitchen hours.
                         </div>
                         <div class="home__icon-heading">614-445-8333</div>
                     </div>
+
+
+                    <div class="col-md-4 home__icon" style="margin-top: 10px;">
+                        {{--{!! file_get_contents(base_path('/public/img/icons/pizza-slice.svg')) !!}--}}
+                        <i class="fa fa-car fa-4x" aria-hidden="true"></i>
+                        <div class="home__icon-heading">Delivery</div>
+                        <div class="home__icon-content">
+                            Delivery available up to 1 hour before kitchen close.
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
         {{-- Beer/Food Menu Images --}}
-
-        {{-- TODO: Remove coronavrius blockers/inline styles--}}
-
-        <section class="container home__section" @click.prevent style="opacity: 0.05;">
+        <section class="container home__section">
             <div class="row center-content">
                 <div class="col-md-5 center-content">
                     <div class="home__card-img-wrapper" :class="{ active: showingBeer }">
@@ -118,10 +119,7 @@
             </div>
 
             {{-- Food Menu --}}
-
-            {{-- TODO: Remove coronavrius blockers/inline styles--}}
-
-            <div v-show="showingFood" @click.prevent>
+            <div v-show="showingFood">
                 <div class="row">
                     {{-- Food Accordion Menu --}}
                     <div id="food-accordion" class="offset-md-1 col-md-10">
@@ -178,10 +176,7 @@
             </div>
 
             {{-- Beer Menu --}}
-
-            {{-- TODO: Remove coronavirus blocker! --}}
-
-            <div v-show="showingBeer" @click.prevent>
+            <div v-show="showingBeer">
                 <div class="row">
                     <div id="beer-accordion" class="offset-md-1 col-md-10">
                         @foreach ($beer_categories as $category)
@@ -238,10 +233,7 @@
         </section>
 
         {{-- Contact Form --}}
-
-        {{-- TODO: Remove coronavrius blockers/inline styles--}}
-
-        <section class="home__section home__section--grey" id="contact-form" style="opacity: 0.05;">
+        <section class="home__section home__section--grey" id="contact-form">
             <div class="container col-md-6">
                 <div class="row">
                     <div class="container">
@@ -258,13 +250,16 @@
                         <p>
                             Give us a call or fill out the form below to speak with one of our planners:
                             <br>
-                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>&nbsp;<span class="home__phone">614-443-4570</span>
+                            <i class="fa fa-mobile fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span class="home__phone">614-443-4570</span>
                         </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="container">
-                        <form class="home__contact" action="{{ route('contact.store') }}" method="POST">
+                        <form class="home__contact" action="{{ route('contact.store') }}" method="POST" style="position: relative;">
+                            <div style="position: absolute; height: 100%; width: 100%; background: rgba(238, 238, 238, 0.85); display: flex; justify-content: center; align-items: center;">
+                                <h4 style="opacity: 0.75; text-align: center; padding: 20px;">Due to changing Coronavirus restrictions, we are unable to book parties at this time.</h4>
+                            </div>
                             <div style="visibility: hidden; height: 0;" aria-hidden="true">
                                 <label for="name_h_p_check"></label>
                                 <input name="name_h_p_check" type="text" id="name_h_p_check" />
