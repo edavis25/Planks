@@ -33,7 +33,7 @@
     <div class="row-fluid">
 
         <div class="input-group col-md-4 col-lg-3 pull-right px-0">
-            {{ Form::select('category', $categories, null, ['class' => 'form-control']) }}
+            {{ Form::select('category', $categories, null, ['class' => 'form-control', 'onchange' => 'this.form.submit()']) }}
         </div>
 
         <div class="d-md-none clearfix"></div>
