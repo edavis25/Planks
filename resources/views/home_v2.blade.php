@@ -54,14 +54,22 @@
                         <i class="fa" :class="[foodCategoryIsActive('{{ $category->name }}') ? 'fa-minus' : 'fa-plus']"></i>
                     </h2>
                     <transition name="expand" @enter="enter" @after-enter="afterEnter" @leave="leave">
-                        <div class="home__menuItems" v-show="foodCategoryIsActive('{{ $category->name }}')">
-                            @foreach($category->dishes ?? [] as $dish)
-                                <div class="menuItem">
-                                    <h6 class="menuItem__heading">{{ $dish->name }}</h6>
-                                    <p class="menuItem__description">{{ $dish->description }}</p>
-                                    <p class="menuItem__price">{{ $dish->price }}</p>
-                                </div>
-                            @endforeach
+                        <div>
+                            @if ($category->details)
+                                <p class="home__menuCategoryDescription" v-show="foodCategoryIsActive('{{ $category->name }}')">
+                                    {!! $category->details !!}
+                                </p>
+                            @endif
+
+                            <div class="home__menuItems" v-show="foodCategoryIsActive('{{ $category->name }}')">
+                                @foreach($category->dishes ?? [] as $dish)
+                                    <div class="menuItem">
+                                        <h6 class="menuItem__heading">{{ $dish->name }}</h6>
+                                        <p class="menuItem__description">{{ $dish->description }}</p>
+                                        <p class="menuItem__price">{{ $dish->price }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
                     </transition>
                 </div>

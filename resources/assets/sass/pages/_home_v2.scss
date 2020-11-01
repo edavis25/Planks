@@ -157,6 +157,9 @@ body {
   &__menuCategory {
     margin-bottom: $space-xl;
   }
+  &__menuCategoryDescription {
+    color: $near-black;
+  }
 
   &__menuHeading {
     font-family: $font-heading;
