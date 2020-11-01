@@ -56,9 +56,11 @@
                     <transition name="expand" @enter="enter" @after-enter="afterEnter" @leave="leave">
                         <div>
                             @if ($category->details)
-                                <p class="home__menuCategoryDescription" v-if="foodCategoryIsActive('{{ $category->name }}')">
-                                    {!! $category->details !!}
-                                </p>
+                                <div v-show="foodCategoryIsActive('{{ $category->name }}')">
+                                    <p class="home__menuCategoryDescription">
+                                        {!! $category->details !!}
+                                    </p>
+                                </div>
                             @endif
 
                             <div class="home__menuItems" v-show="foodCategoryIsActive('{{ $category->name }}')">
