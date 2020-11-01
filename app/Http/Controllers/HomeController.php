@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', [
+        return view('home_v2', [
             'food_categories' => Category::food()->with('dishes')->get(),
             'beer_categories' => Category::beer()->with('beers')->get(),
             'food_pdf'        => PDFMenu::where('type', 'food')->first(),

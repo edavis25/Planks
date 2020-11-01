@@ -19,3 +19,49 @@ $bootstrap-sm: 576px;
 $bootstrap-md: 768px;
 $bootstrap-lg: 992px;
 $bootstrap-xl: 1200px;
+
+// v2 design redux
+$primary-dark: #006D77;
+$primary-light: #0096A3;
+$primary-lightest: #83C5BE;
+
+$off-white: #FFFCFA;
+$secondary: #E29578;
+$secondary-light: #FFDDD2;
+
+$black: #0A0A0A;
+$near-black: #333333;
+$gray-dark: #858585;
+$gray: #ADADAD;
+$gray-light: #D6D6D6;
+$gray-lightest: #F5F5F5;
+
+$text-xxxs: 0.5rem;
+$text-xxs: 0.625rem;
+$text-xs: 0.75rem;
+$text-sm: 0.875rem;
+$text-md: 1rem;
+$text-lg: 1.125rem;
+$text-xl: 1.3rem;
+$text-xxl: 1.5rem;
+$text-xxxl: 1.875rem;
+$test-xxxxl: 2.125rem;
+$text-xxxxxl: 3rem;
+
+
+$base-space: 1em;
+$space-xxxs: calc(0.125 * #{$base-space});
+$space-xxxxs: calc(0.125 * #{$base-space});
+$space-xxxs:  calc(0.25 * #{$base-space});
+$space-xxs:   calc(0.375 * #{$base-space});
+$space-xs:    calc(0.5 * #{$base-space});
+$space-sm:    calc(0.75 * #{$base-space});
+$space-md:    calc(1.25 * #{$base-space});
+$space-lg:    calc(2 * #{$base-space});
+$space-xl:    calc(3.25 * #{$base-space});
+$space-xxl:   calc(5.25 * #{$base-space});
+$space-xxxl:  calc(8.5 * #{$base-space});
+$space-xxxxl: calc(13.75 * #{$base-space});
+
+$font-heading: Norwester;
+$font-body: 'Raleway', sans-serif;

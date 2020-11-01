@@ -19,6 +19,9 @@
     <!-- Custom Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
+    <!-- Raleway font -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -66,7 +69,7 @@
         {{-- Content --}}
         @yield('content')
 
-        <footer class="container mb-3 text-center">
+        <footer class="container mb-3 text-center footer">
             <hr>
             Planks Bier Garten &bull; 888 S. High St &bull; Columbus, OH 43201 &bull; 614-443-4570
         </footer>

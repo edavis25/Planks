@@ -1,0 +1,21 @@
+.menuItem {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: $space-md $space-sm;
+
+  &__heading {
+    color: $primary-dark;
+    margin-bottom: $space-xxxs;
+    font-weight: bold;
+  }
+  &__description {
+    font-size: $text-sm;
+    margin-bottom: $space-xxxs;
+  }
+  &__price {
+    color: $primary-dark;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: $text-sm;
+  }
+}

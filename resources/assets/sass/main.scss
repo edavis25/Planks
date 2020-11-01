@@ -5,8 +5,10 @@
 
 @import "components/pagination";
 @import "components/buttons";
+@import "components/menuItem";
 
 @import "layout/navigation";
 @import "layout/admin";
 
-@import "pages/home";
+//@import "pages/home";
+@import "pages/home_v2";
