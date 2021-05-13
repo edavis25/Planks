@@ -15,7 +15,7 @@
             <div class="home__infoSection">
                 <h4 class="home__icon">Dine-in</h4>
                 <p class="home__infoCaption">
-                    <strong>Mon-Sat:</strong> 11am-10pm<br>
+                    <strong>Mon-Sat:</strong> 11am-11pm<br>
                     <strong>Sunday:</strong> 12pm-9pm
                 </p>
             </div>
