@@ -27,10 +27,10 @@
                 </p>
             </div>
             <div class="home__infoSection">
-                <h4 class="home__icon">Delivery</h4>
+                <h4 class="home__icon">Trivia</h4>
                 <p class="home__infoCaption">
-                    Delivery to German Village<br>
-                    5pm-1 hour before close
+                    Join us Wednesday for bar trivia!<br>
+                    Starts at 7:30pm
                 </p>
             </div>
         </section>
