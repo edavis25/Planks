@@ -35,21 +35,20 @@
                 <i class="fa fa-file-pdf-o pr-2" aria-hidden="true"></i>
                 <a class="sidebar-link" href="{{ route('admin.pdf-menus.index') }}">PDF Menus</a>
             </div>
-            <div class="sidebar-item --heading" id="special-accordian" data-toggle="collapse" data-target="#special-collapsed">
-                <a class="sidebar-link" href="#">Daily Specials</a>
-                <i class="fa fa-chevron-down float-right mr-3 mt-1"></i>
-            </div>
-
-            <div id="special-collapsed" class="collapse" aria-labelledby="headingOne" data-parent="#special-accordion">
-                <div class="sidebar-item">
-                    <i class="fa fa-plus pr-2"></i>
-                    <a class="sidebar-link" href="#">Create</a>
-                </div>
-                <div class="sidebar-item">
-                    <i class="fa fa-edit pr-2"></i>
-                    <a class="sidebar-link" href="#">Manage</a>
-                </div>
-            </div>
+{{--            <div class="sidebar-item --heading" id="special-accordian" data-toggle="collapse" data-target="#special-collapsed">--}}
+{{--                <a class="sidebar-link" href="#">Daily Specials</a>--}}
+{{--                <i class="fa fa-chevron-down float-right mr-3 mt-1"></i>--}}
+{{--            </div>--}}
+{{--            <div id="special-collapsed" class="collapse" aria-labelledby="headingOne" data-parent="#special-accordion">--}}
+{{--                <div class="sidebar-item">--}}
+{{--                    <i class="fa fa-plus pr-2"></i>--}}
+{{--                    <a class="sidebar-link" href="#">Create</a>--}}
+{{--                </div>--}}
+{{--                <div class="sidebar-item">--}}
+{{--                    <i class="fa fa-edit pr-2"></i>--}}
+{{--                    <a class="sidebar-link" href="#">Manage</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="sidebar-item --heading">
                 <b>ADMINISTRATIVE</b>
