@@ -43,7 +43,7 @@
     </small>
 </div>
 
-<div class="form-group">
+<div class="form-group" style="max-width: 334px;">
     {{ Form::label('category_id', 'Category') }}
     {{ Form::select('category_id', $categories, null, [ 'class' => 'form-control' ]) }}
 </div>
