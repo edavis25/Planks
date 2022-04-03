@@ -273,7 +273,7 @@ body {
   }
 
   &__about {
-    font-size: $text-sm;
+    font-size: $text-xl;
 
     @media screen and (max-width: 779px) {
       &.--container {
@@ -283,8 +283,9 @@ body {
 
     @media screen and (min-width: 780px) {
       display: grid;
-      grid-template-columns: 300px auto;
+      grid-template-columns: auto 300px;
       grid-column-gap: $space-lg;
+      align-items: center;
     }
 
     p {

@@ -154,9 +154,9 @@
         </section>
 
         <section class="home__about --section --container">
-            <div>
-                <img class="img img-fluid mx-auto mb-3" src="{{ asset('img/planks-historic.jpg') }}" alt="Historic photograph of Planks Bier Garten" />
-            </div>
+{{--            <div>--}}
+{{--                <img class="img img-fluid mx-auto mb-3" src="{{ asset('img/planks-historic.jpg') }}" alt="Historic photograph of Planks Bier Garten" />--}}
+{{--            </div>--}}
             <div>
 {{--                <p>--}}
 {{--                    Over 60 years and 3 generations later, we are proud to continue serving our friends and family in the neighborhood we love!--}}
@@ -173,6 +173,9 @@
                 <p>
                     Over 60 years and 3 generations later, we are proud to continue serving our friends and family in the neighborhood we love!
                 </p>
+            </div>
+            <div>
+                <img class="img img-fluid mx-auto mb-3" src="{{ asset('img/planks-historic.jpg') }}" alt="Historic photograph of Planks Bier Garten" />
             </div>
         </section>
     </div>
