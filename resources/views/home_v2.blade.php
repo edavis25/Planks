@@ -99,46 +99,56 @@
 
         <section class="home__contact --section" id="contact-form">
             <div class="home__contactContent --container">
-                <h1 class="home__contactHeading">Host Your<br>Next Event<br>With Us!</h1>
-                <h1 class="home__contactHeading --mobile">Host Your Next Event With Us!</h1>
-                <div>
+                <h1 class="home__contactHeading">Our History</h1>
+                <div style="font-weight: 500;">
                     <p>
-                        Give us a call or fill out the form below to speak with one of our planners abour renting
-                        our large Bier Garten with space for up to 100 guests!  
-                        <strong>614.443.4570</strong>
+                        In 1939, shortly after the end of Prohibition, Walter Plank, Sr. saw an opportunity to open a bar in his beloved childhood neighborhood.
+                        Walter Plank later entrusted the bar to his two sons, and it was one of those sons, William “Willie” Plank who purchased a nearby
+                        restaurant in 1960 and began his own legacy with Planks Bier Garten.
                     </p>
-                    <form class="home__contactForm" action="{{ route('contact.store') }}" method="POST" style="position: relative;">
-                        {{-- Start Coronavirus Form Blocker!!! --}}
-                            <div style="position: absolute; top: 0; left: 0; height: 103%; width: 103%; background: rgba(245, 245, 245, 0.9); display: flex; justify-content: center; align-items: center; margin-left: -1.5%; margin-top: -1.5%; color: #d46439; font-weight: bold; border-radius: 4px; padding: 0 12px;">
-                                Due to evolving Coronavirus restrictions, we are unable to reliably book large groups at this time.
-                            </div>
-                        {{-- End Coronavirus Form Blocker!!! --}}
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <div class="home__formGroup">
-                            <input type="text" class="form-control bg-offwhite" name="name" placeholder="Name" required />
-                            <input type="text" class="form-control bg-offwhite" name="phone" placeholder="Phone" required />
-                            <input type="date" class="form-control bg-offwhite" name="date" placeholder="Date" required />
-                        </div>
-                        <div class="home__formGroup --description">
-                            <textarea class="form-control bg-offwhite" name="description" placeholder="Number guests, type of event, etc."></textarea>
-                            @if (session('flash_status') && session('flash_status') === 'success')
-                                <button type="button" class="btn btn-success home__contactSubmit" disabled>Message received!</button>
-                            @else
-                                <button type="submit" class="btn btn-success home__contactSubmit">Contact Us!</button>
-                            @endif
-                        </div>
-                        <span style="visibility: hidden; height: 0; margin: 0; padding: 0;" aria-hidden="true">
-                            <label for="name_h_p_check"></label>
-                            <input name="name_h_p_check" type="text" id="name_h_p_check" />
-                        </span>
-                    </form>
-                    @if (session('flash_status') && session('flash_status') === 'danger')
-                        <p style="border-top: 1px solid #fff; padding-top: 12px; margin-top: 12px;">
-                            <i class="fa fa-warning"></i>
-                            Something went wrong. Please try again or contact us directly at
-                            <strong>614.443.4570</strong> if this problem persists.
-                        </p>
-                    @endif
+                    <p>
+                        Located in the heart of German Village, Planks offers an outdoor patio, large space for groups, and a place to experience
+                        the beauty of one of Columbus’ most historic neighborhoods.
+                    </p>
+
+                    {{-- This is the old contact form. leaving it here in case things change with party bookings --}}
+{{--                    <p>--}}
+{{--                        Give us a call or fill out the form below to speak with one of our planners abour renting--}}
+{{--                        our large Bier Garten with space for up to 100 guests!  --}}
+{{--                        <strong>614.443.4570</strong>--}}
+{{--                    </p>--}}
+{{--                    <form class="home__contactForm" action="{{ route('contact.store') }}" method="POST" style="position: relative;">--}}
+{{--                        --}}{{-- Start Coronavirus Form Blocker!!! --}}
+{{--                            <div style="position: absolute; top: 0; left: 0; height: 103%; width: 103%; background: rgba(245, 245, 245, 0.9); display: flex; justify-content: center; align-items: center; margin-left: -1.5%; margin-top: -1.5%; color: #d46439; font-weight: bold; border-radius: 4px; padding: 0 12px;">--}}
+{{--                                Due to evolving Coronavirus restrictions, we are unable to reliably book large groups at this time.--}}
+{{--                            </div>--}}
+{{--                        --}}{{-- End Coronavirus Form Blocker!!! --}}
+{{--                        <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+{{--                        <div class="home__formGroup">--}}
+{{--                            <input type="text" class="form-control bg-offwhite" name="name" placeholder="Name" required />--}}
+{{--                            <input type="text" class="form-control bg-offwhite" name="phone" placeholder="Phone" required />--}}
+{{--                            <input type="date" class="form-control bg-offwhite" name="date" placeholder="Date" required />--}}
+{{--                        </div>--}}
+{{--                        <div class="home__formGroup --description">--}}
+{{--                            <textarea class="form-control bg-offwhite" name="description" placeholder="Number guests, type of event, etc."></textarea>--}}
+{{--                            @if (session('flash_status') && session('flash_status') === 'success')--}}
+{{--                                <button type="button" class="btn btn-success home__contactSubmit" disabled>Message received!</button>--}}
+{{--                            @else--}}
+{{--                                <button type="submit" class="btn btn-success home__contactSubmit">Contact Us!</button>--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                        <span style="visibility: hidden; height: 0; margin: 0; padding: 0;" aria-hidden="true">--}}
+{{--                            <label for="name_h_p_check"></label>--}}
+{{--                            <input name="name_h_p_check" type="text" id="name_h_p_check" />--}}
+{{--                        </span>--}}
+{{--                    </form>--}}
+{{--                    @if (session('flash_status') && session('flash_status') === 'danger')--}}
+{{--                        <p style="border-top: 1px solid #fff; padding-top: 12px; margin-top: 12px;">--}}
+{{--                            <i class="fa fa-warning"></i>--}}
+{{--                            Something went wrong. Please try again or contact us directly at--}}
+{{--                            <strong>614.443.4570</strong> if this problem persists.--}}
+{{--                        </p>--}}
+{{--                    @endif--}}
                 </div>
             </div>
         </section>
@@ -148,15 +158,18 @@
                 <img class="img img-fluid mx-auto mb-3" src="{{ asset('img/planks-historic.jpg') }}" alt="Historic photograph of Planks Bier Garten" />
             </div>
             <div>
-                <p>
-                    In 1939, shortly after the end of Prohibition, Walter Plank, Sr. saw an opportunity to open a bar in his beloved childhood neighborhood.
-                    Walter Plank later entrusted the bar to his two sons, and it was one of those sons, William “Willie” Plank who purchased a nearby
-                    restaurant in 1960 and began his own legacy with Planks Bier Garten.
-                </p>
-                <p>
-                    Located in the heart of German Village, Planks offers an outdoor patio, large space for groups, and a place to experience
-                    the beauty of one of Columbus’ most historic neighborhoods.
-                </p>
+{{--                <p>--}}
+{{--                    Over 60 years and 3 generations later, we are proud to continue serving our friends and family in the neighborhood we love!--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    In 1939, shortly after the end of Prohibition, Walter Plank, Sr. saw an opportunity to open a bar in his beloved childhood neighborhood.--}}
+{{--                    Walter Plank later entrusted the bar to his two sons, and it was one of those sons, William “Willie” Plank who purchased a nearby--}}
+{{--                    restaurant in 1960 and began his own legacy with Planks Bier Garten.--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    Located in the heart of German Village, Planks offers an outdoor patio, large space for groups, and a place to experience--}}
+{{--                    the beauty of one of Columbus’ most historic neighborhoods.--}}
+{{--                </p>--}}
                 <p>
                     Over 60 years and 3 generations later, we are proud to continue serving our friends and family in the neighborhood we love!
                 </p>
