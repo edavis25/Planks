@@ -153,7 +153,7 @@
             </div>
         </section>
 
-        <section class="home__about --section --container">
+        <section class="home__about --section --container --hiddenMobile">
 {{--            <div>--}}
 {{--                <img class="img img-fluid mx-auto mb-3" src="{{ asset('img/planks-historic.jpg') }}" alt="Historic photograph of Planks Bier Garten" />--}}
 {{--            </div>--}}

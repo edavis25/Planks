@@ -10,7 +10,10 @@ body {
   font-family: $font-body;
 
   .--section {
-    margin-bottom: $space-xxxl;
+    margin-bottom: $space-xxl;
+    @media screen and (min-width: $bootstrap-sm) {
+      margin-bottom: $space-xxxl;
+    }
   }
 
   .--container {
@@ -117,6 +120,9 @@ body {
     @media screen and (min-width: $bootstrap-md) {
       max-width: 300px;
     }
+    @media screen and (max-width: 576px) {
+      margin: 0 auto;
+    }
     position: relative;
     opacity: 0.5;
     transition: all 0.35s ease-out;
@@ -151,7 +157,10 @@ body {
   }
 
   &__menu {
-
+    @media screen and (max-width: 576px) {
+      margin: 0 auto;
+      max-width: 400px !important;
+    }
   }
 
   &__menuCategory {
@@ -200,6 +209,10 @@ body {
       grid-template-columns: 1fr 2fr;
       grid-column-gap: $space-sm;
     }
+    @media screen and (max-width: 576px) {
+      max-width: 400px !important;
+      margin: 0 auto;
+    }
   }
 
   &__contactHeading {
@@ -207,7 +220,6 @@ body {
     font-family: $font-heading;
     line-height: 1;
     font-size: $test-xxxxl;
-    display: none;
 
     &.--mobile {
       display: block;
