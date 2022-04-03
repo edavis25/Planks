@@ -67,7 +67,7 @@
                                 @foreach($category->dishes ?? [] as $dish)
                                     <div class="menuItem">
                                         <h6 class="menuItem__heading">{{ $dish->name }}</h6>
-                                        <p class="menuItem__description">{{ $dish->description }}</p>
+                                        <p class="menuItem__description">{!! $dish->description !!}</p>
                                         <p class="menuItem__price">{{ $dish->price }}</p>
                                     </div>
                                 @endforeach
@@ -88,7 +88,7 @@
                             @foreach($category->beers ?? [] as $beer)
                                 <div class="menuItem">
                                     <h6 class="menuItem__heading">{{ $beer->name }}</h6>
-                                    <p class="menuItem__description">{{ $beer->description }}</p>
+                                    <p class="menuItem__description">{!! $beer->description !!}</p>
                                 </div>
                             @endforeach
                         </div>
