@@ -11,6 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Planks') }}</title>
+    <link rel="shortcut icon" type="image/jpg" href="/img/favicon-32x32.png"/>
 
     <!-- Bootstrap 4 -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
@@ -70,7 +71,6 @@
         @yield('content')
 
         <footer class="container mb-3 text-center footer">
-            <hr>
             Planks Bier Garten &bull; 888 S. High St &bull; Columbus, OH 43201 &bull; 614-443-4570
         </footer>
 
